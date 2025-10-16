@@ -1,0 +1,26 @@
+h2 {
+  color: #0d2d5b;
+}
+
+.card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.btn-warning {
+  background-color: #ff8c00;
+  border: none;
+}
+
+.btn-warning:hover {
+  background-color: #e67e00;
+}
+
+.btn-outline-warning:hover {
+  background-color: #ff8c00;
+  color: white;
+}
