@@ -1,1 +1,107 @@
-<p>contact works!</p>
+<div class="contact-container">
+    <div class="contact-info">
+        <h2 >Contactez-nous</h2>
+        <p class="contact-desc">Notre équipe est là pour vous aider 24h/24 et 7j/7. Choisissez le moyen qui vous convient le mieux pour nous contacter.</p>
+
+        <div class="info-items">
+            <div class="info-item">
+                <i class="fas fa-phone-alt"></i>
+                <div class="info-content">
+                    <h3>Téléphone</h3>
+                    <p>+33 1 23 45 67 89</p>
+                    <p>Support disponible 24/7</p>
+                </div>
+            </div>
+
+            <div class="info-item">
+                <i class="fas fa-envelope"></i>
+                <div class="info-content">
+                    <h3>Email</h3>
+                    <p>support@cloudconnect.com</p>
+                    <p>commercial@cloudconnect.com</p>
+                </div>
+            </div>
+
+            <div class="info-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <div class="info-content">
+                    <h3>Adresse</h3>
+                    <p>123 Avenue du Web</p>
+                    <p>75001 Paris, France</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="contact-form">
+        <h2>Envoyez-nous un message</h2>
+        <form #contactForm="ngForm">
+            <div class="form-group">
+                <label for="name">Nom complet</label>
+                <input
+                    type="text"
+                    id="name"
+                    name="name"
+
+                    required
+
+                    placeholder="Votre nom complet">
+                <div class="error-message" >
+                    Le nom est requis
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    [(ngModel)]="contactData.email"
+                    required
+                    email
+                    #email="ngModel"
+                    placeholder="votre@email.com">
+                <div class="error-message" *ngIf="email.invalid && (email.dirty || email.touched)">
+                    Veuillez entrer une adresse email valide
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="subject">Sujet</label>
+                <select
+                    id="subject"
+                    name="subject"
+                    [(ngModel)]="contactData.subject"
+                    required
+                    #subject="ngModel">
+                    <option value="">Sélectionnez un sujet</option>
+                    <option value="support">Support technique</option>
+                    <option value="sales">Commercial</option>
+                    <option value="billing">Facturation</option>
+                    <option value="other">Autre</option>
+                </select>
+                <div class="error-message" *ngIf="subject.invalid && (subject.dirty || subject.touched)">
+                    Veuillez sélectionner un sujet
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea
+                    id="message"
+                    name="message"
+                    [(ngModel)]="contactData.message"
+                    required
+                    #message="ngModel"
+                    rows="5"
+                    placeholder="Votre message"></textarea>
+                <div class="error-message" *ngIf="message.invalid && (message.dirty || message.touched)">
+                    Le message est requis
+                </div>
+            </div>
+
+            <button type="submit" [disabled]="!contactForm.form.valid" class="btn btn-warning btn-lg text-white fw-bold">Envoyer le message</button>
+        </form>
+    </div>
+</div>
