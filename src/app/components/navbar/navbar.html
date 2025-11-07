@@ -19,6 +19,12 @@
         <li class="nav-item"><a class="nav-link" routerLink="/pricing">Pricing</a></li>
         <li class="nav-item"><a class="nav-link" routerLink="/faq">FAQ</a></li>
         <li class="nav-item"><a class="nav-link" routerLink="/contact">Contact</a></li>
+        <button class="auth-button" (click)="openAuthModal('signin')">Se connecter</button>
+<button class="auth-button auth-button-outline" (click)="openAuthModal('signup')">S'inscrire</button>
+
+<app-modal>
+  <app-insecription></app-insecription>
+</app-modal>
       </ul>
     </div>
   </div>
