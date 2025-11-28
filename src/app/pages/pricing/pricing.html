@@ -56,6 +56,75 @@
           </div>
         </div>
       </div>
+
+  <div class="container">
+    <h2 class="fw-bold text-primary text-center mb-4">Build Your Custom Plan</h2>
+    <p class="text-muted text-center mb-5">
+      Configure a hosting plan that matches your exact needs.
+    </p>
+
+    <div class="card shadow border-0 p-4 mw-60">
+      <form>
+
+        <!-- OS Selection -->
+        <div class="mb-4">
+          <label class="fw-bold mb-2">Operating System</label>
+          <select class="form-select" [(ngModel)]="custom.os" name="os">
+            <option value="linux">Linux</option>
+            <option value="windows">Windows</option>
+          </select>
+        </div>
+
+        <!-- RAM -->
+        <div class="mb-4">
+          <label class="fw-bold mb-2">Memory (RAM)</label>
+          <select class="form-select" [(ngModel)]="custom.ram" name="ram">
+            <option *ngFor="let r of ramOptions" [value]="r">{{ r }} GB</option>
+          </select>
+        </div>
+
+        <!-- Storage -->
+        <div class="mb-4">
+          <label class="fw-bold mb-2">Storage</label>
+          <input type="range" class="form-range" min="20" max="500" step="10"
+                 [(ngModel)]="custom.storage" name="storage">
+          <div>{{ custom.storage }} GB</div>
+        </div>
+
+        <!-- CPU -->
+        <div class="mb-4">
+          <label class="fw-bold mb-2">CPU Cores</label>
+          <select class="form-select" [(ngModel)]="custom.cpu" name="cpu">
+            <option *ngFor="let c of cpuOptions" [value]="c">{{ c }} Core(s)</option>
+          </select>
+        </div>
+
+        <!-- Extra Services -->
+        <div class="mb-4">
+          <label class="fw-bold mb-2">Additional Services</label>
+          <div class="form-check" *ngFor="let s of services">
+            <input class="form-check-input" type="checkbox"
+                   [(ngModel)]="s.selected" [name]="s.name">
+            <label class="form-check-label">{{ s.label }} (+${{ s.price }})</label>
+          </div>
+        </div>
+
+        <!-- Total Price -->
+        <div class="text-center bg-light py-3 rounded border mt-4">
+          <h4 class="fw-bold">
+            Total Price: <span class="text-primary">${{ totalPrice }}/mo</span>
+          </h4>
+        </div>
+
+        <button class="btn btn-primary w-100 mt-4 fw-bold" routerLink="/signin">
+          Build My Server
+        </button>
+
+      </form>
+    </div>
+  </div>
+
+
     </div>
   </div>
 </section>
