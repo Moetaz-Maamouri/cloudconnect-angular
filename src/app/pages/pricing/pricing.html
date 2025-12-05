@@ -57,13 +57,13 @@
         </div>
       </div>
 
-  <div class="container">
+  <div class="container small-container">
     <h2 class="fw-bold text-primary text-center mb-4">Build Your Custom Plan</h2>
     <p class="text-muted text-center mb-5">
       Configure a hosting plan that matches your exact needs.
     </p>
 
-    <div class="card shadow border-0 p-4 mw-60">
+    <div class="card shadow border-0 p-4 mw-6 m-8">
       <form>
 
         <!-- OS Selection -->
@@ -100,14 +100,19 @@
         </div>
 
         <!-- Extra Services -->
-        <div class="mb-4">
-          <label class="fw-bold mb-2">Additional Services</label>
-          <div class="form-check" *ngFor="let s of services">
-            <input class="form-check-input" type="checkbox"
-                   [(ngModel)]="s.selected" [name]="s.name">
-            <label class="form-check-label">{{ s.label }} (+${{ s.price }})</label>
-          </div>
-        </div>
+<div class="mb-4 text-center">
+  <label class="fw-bold mb-3 d-block">Additional Services</label>
+  <div class="form-check left-label" *ngFor="let s of services">
+    <input class="form-check-input service-checkbox" type="checkbox"
+           [(ngModel)]="s.selected" [name]="s.name" [id]="s.name">
+    <label class="form-check-label service-label" [for]="s.name">
+      {{ s.label }} (+${{ s.price }})
+    </label>
+  </div>
+</div>
+
+
+
 
         <!-- Total Price -->
         <div class="text-center bg-light py-3 rounded border mt-4">

@@ -24,8 +24,14 @@ h2 {
   background-color: #ff8c00;
   color: white;
 }
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 40px 20px;
+
+.service-checkbox {
+  margin-right: 10px !important; /* Adjust space here */
 }
+
+.left-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+

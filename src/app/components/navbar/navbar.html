@@ -22,6 +22,14 @@
 <button class="auth-button" (click)="openAuthModal('signin')">Log in</button>
 <button class="auth-button auth-button-outline" (click)="openAuthModal('signup')">Sign up</button>
 
+<!-- Place modal outside navbar -->
+<app-auth-modal 
+    [isOpen]="authModalOpen"
+    [mode]="authMode"
+    (close)="closeAuthModal()">
+</app-auth-modal>
+
+
 
       </ul>
     </div>
