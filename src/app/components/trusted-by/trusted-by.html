@@ -1,0 +1,28 @@
+<section class="bg-light">
+      <h2 class="text-primary text-center">Trusted by leading companies</h2>
+      <p class="text-center">These organizations trust CloudConnect to power their websites and services.</p>
+    <div class="slider">
+      <div class="slider-track">
+  <span *ngFor="let slide of companies">
+      <div class="slide">
+        <div class="content-card">
+      <img src="{{slide.img}}" class="card-img-top mx-auto d-block">
+          <h5 class="mt-2 text-warning font-semibold text-center text-lg">{{ slide.name }}</h5>
+        <p class="mt-1 text-center text-sm text-gray-200">{{ slide.description }}</p>
+        </div>
+        </div>
+    </span>
+
+
+    <span *ngFor="let slide of companies">
+      <div class="slide">
+        <div class="content-card">
+      <img src="{{slide.img}}" class="card-img-top mx-auto d-block">
+          <h5 class="mt-2 text-warning font-semibold text-center text-lg">{{ slide.name }}</h5>
+        <p class="mt-1 text-center text-sm text-gray-200">{{ slide.description }}</p>
+        </div>
+        </div>
+    </span>
+      </div>
+    </div>
+</section>
