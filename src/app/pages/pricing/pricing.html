@@ -57,79 +57,96 @@
         </div>
       </div>
 
-  <div class="container small-container">
-    <h2 class="fw-bold text-primary text-center mb-4">Build Your Custom Plan</h2>
-    <p class="text-muted text-center mb-5">
-      Configure a hosting plan that matches your exact needs.
-    </p>
+      <div class="container py-5">
+        <div class="mx-auto" style="max-width: 720px;">
 
-    <div class="card shadow border-0 p-4 mw-6 m-8">
-      <form>
+          <h2 class="fw-bold text-primary text-center mb-2">Build Your Custom Plan</h2>
+          <p class="text-muted text-center mb-4">
+            Configure a hosting plan that matches your exact needs.
+          </p>
 
-        <!-- OS Selection -->
-        <div class="mb-4">
-          <label class="fw-bold mb-2">Operating System</label>
-          <select class="form-select" [(ngModel)]="custom.os" name="os">
-            <option value="linux">Linux</option>
-            <option value="windows">Windows</option>
-          </select>
+          <div class="card shadow-lg border-0 p-4 rounded-4">
+            <form>
+
+              <!-- OS Selection -->
+              <div class="mb-4">
+                <label class="card-title fw-bold text-dark mb-3">Operating System</label>
+                <select class="form-select form-select-lg rounded-3"
+                        [(ngModel)]="custom.os" name="os">
+                  <option value="linux">Linux</option>
+                  <option value="windows">Windows</option>
+                </select>
+              </div>
+
+              <!-- RAM -->
+              <div class="mb-4">
+                <label class="card-title fw-bold text-dark mb-3">Memory (RAM)</label>
+                <select class="form-select form-select-lg rounded-3"
+                        [(ngModel)]="custom.ram" name="ram">
+                  <option *ngFor="let r of ramOptions" [value]="r">
+                    {{ r }} GB
+                  </option>
+                </select>
+              </div>
+
+              <!-- Storage -->
+              <div class="mb-4">
+                <label class="card-title fw-bold text-dark mb-3">Storage</label>
+                <input type="range" class="form-range" min="20" max="500" step="10"
+                       [(ngModel)]="custom.storage" name="storage">
+                <div class="text-primary fw-bold text-center mt-1">
+                  {{ custom.storage }} GB
+                </div>
+              </div>
+
+              <!-- CPU -->
+              <div class="mb-4">
+                <label class="card-title fw-bold text-dark mb-3">CPU Cores</label>
+                <select class="form-select form-select-lg rounded-3"
+                        [(ngModel)]="custom.cpu" name="cpu">
+                  <option *ngFor="let c of cpuOptions" [value]="c">
+                    {{ c }} Core(s)
+                  </option>
+                </select>
+              </div>
+
+              <!-- Extra Services -->
+              <div class="mb-4">
+                <label class="card-title fw-bold text-dark mb-3">Additional Services</label>
+
+                <div class="d-flex flex-column gap-2">
+                  <div class="form-check p-2 border rounded-3 shadow-sm"
+                       *ngFor="let s of services">
+                    <input class="form-check-input m-1" type="checkbox"
+                           [(ngModel)]="s.selected" [name]="s.name" [id]="s.name">
+                    <label class="form-check-label ms-2" [for]="s.name">
+                      {{ s.label }} <span class="text-warning fw-bold">(+${{ s.price }})</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Total Price -->
+              <div class="text-center bg-light py-3 rounded-3 border shadow-sm mt-4">
+                <h4 class="fw-bold mb-0">
+                  Total Price:
+                  <span class="text-primary">${{ totalPrice }}/mo</span>
+                </h4>
+              </div>
+
+              <button
+                class="btn btn-primary w-100 mt-4 fw-bold py-2 rounded-3"
+                routerLink="/signin">
+                Build My Server
+              </button>
+
+            </form>
+          </div>
+
         </div>
+      </div>
 
-        <!-- RAM -->
-        <div class="mb-4">
-          <label class="fw-bold mb-2">Memory (RAM)</label>
-          <select class="form-select" [(ngModel)]="custom.ram" name="ram">
-            <option *ngFor="let r of ramOptions" [value]="r">{{ r }} GB</option>
-          </select>
-        </div>
-
-        <!-- Storage -->
-        <div class="mb-4">
-          <label class="fw-bold mb-2">Storage</label>
-          <input type="range" class="form-range" min="20" max="500" step="10"
-                 [(ngModel)]="custom.storage" name="storage">
-          <div>{{ custom.storage }} GB</div>
-        </div>
-
-        <!-- CPU -->
-        <div class="mb-4">
-          <label class="fw-bold mb-2">CPU Cores</label>
-          <select class="form-select" [(ngModel)]="custom.cpu" name="cpu">
-            <option *ngFor="let c of cpuOptions" [value]="c">{{ c }} Core(s)</option>
-          </select>
-        </div>
-
-        <!-- Extra Services -->
-<div class="mb-4 text-center">
-  <label class="fw-bold mb-3 d-block">Additional Services</label>
-  <div class="form-check left-label" *ngFor="let s of services">
-    <input class="form-check-input service-checkbox" type="checkbox"
-           [(ngModel)]="s.selected" [name]="s.name" [id]="s.name">
-    <label class="form-check-label service-label" [for]="s.name">
-      {{ s.label }} (+${{ s.price }})
-    </label>
-  </div>
-</div>
-
-
-
-
-        <!-- Total Price -->
-        <div class="text-center bg-light py-3 rounded border mt-4">
-          <h4 class="fw-bold">
-            Total Price: <span class="text-primary">${{ totalPrice }}/mo</span>
-          </h4>
-        </div>
-
-        <button class="btn btn-primary w-100 mt-4 fw-bold" routerLink="/signin">
-          Build My Server
-        </button>
-
-      </form>
     </div>
   </div>
 
-
-    </div>
-  </div>
 </section>

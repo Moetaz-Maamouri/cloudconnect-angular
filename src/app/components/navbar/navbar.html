@@ -2,7 +2,7 @@
   <div class="container">
     <a class="navbar-brand fw-bold text-primary" routerLink="/">
       <img src="assets/logo_vector.png" alt="Cloud Connect" height="60" class="me-2" />
-      Cloud<span class="ORANGE">24</span>Connect
+
     </a>
     <button
       class="navbar-toggler"
@@ -22,12 +22,12 @@
 <button class="auth-button" (click)="openAuthModal('signin')">Log in</button>
 <button class="auth-button auth-button-outline" (click)="openAuthModal('signup')">Sign up</button>
 
-<!-- Place modal outside navbar -->
-<app-auth-modal 
+<!-- Place modal outside navbar
+<app-auth-modal
     [isOpen]="authModalOpen"
     [mode]="authMode"
     (close)="closeAuthModal()">
-</app-auth-modal>
+</app-auth-modal>-->
 
 
 
