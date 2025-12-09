@@ -2,12 +2,187 @@
 @import 'bootstrap/dist/css/bootstrap.min.css';
 @import "bootstrap-icons/font/bootstrap-icons.css";
 
+:root {
+  --bg-color: #ffffff;
+  --text-color: #212529;
+  --navbar-bg: #ffffff;
+  --card-bg: #ffffff;
+  --border-color: #dee2e6;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --section-bg: #f8f9fa;
+  --input-bg: #ffffff;
+  --input-border: #dee2e6;
+  --text-muted: #6c757d;
+  --heading-color: #0d2d5b;
+}
+
+[data-bs-theme="dark"] {
+  --bg-color: #0f1720;
+  --text-color: #e0e0e0;
+  --navbar-bg: #1a2332;
+  --card-bg: #1a2332;
+  --border-color: #253141;
+  --shadow-color: rgba(0, 0, 0, 0.4);
+  --section-bg: #141b26;
+  --input-bg: #1e293b;
+  --input-border: #334155;
+  --text-muted: #a0a0a0;
+  --heading-color: #e0e0e0;
+}
+
 body {
   margin: 0;
   padding: 0;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Dark mode styles */
+.dark,
+[data-bs-theme="dark"] {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+/* Navbar */
+[data-bs-theme="dark"] .navbar {
+  background-color: var(--navbar-bg) !important;
+  border-bottom: 1px solid var(--border-color);
+}
+
+[data-bs-theme="dark"] .nav-link {
+  color: var(--text-color) !important;
+}
+
+[data-bs-theme="dark"] .nav-link:hover {
+  color: #ff8c00 !important;
+}
+
+[data-bs-theme="dark"] .navbar-brand {
+  color: var(--text-color) !important;
+}
+
+[data-bs-theme="dark"] .bg-white {
+  background-color: var(--navbar-bg) !important;
+}
+
+[data-bs-theme="dark"] .text-primary {
+  color: #3498db !important;
+}
+
+[data-bs-theme="dark"] .shadow-sm {
+  box-shadow: 0 0.125rem 0.25rem var(--shadow-color) !important;
+}
+
+/* Cards */
+[data-bs-theme="dark"] .card {
+  background-color: var(--card-bg) !important;
+  border-color: var(--border-color) !important;
+  color: var(--text-color) !important;
+}
+
+[data-bs-theme="dark"] .card-title {
+  color: var(--text-color) !important;
+}
+
+[data-bs-theme="dark"] .card-body {
+  color: var(--text-color) !important;
+}
+
+/* Backgrounds */
+[data-bs-theme="dark"] .bg-light {
+  background-color: var(--section-bg) !important;
+}
+
+[data-bs-theme="dark"] .bg-white {
+  background-color: var(--card-bg) !important;
+}
+
+/* Text colors */
+[data-bs-theme="dark"] .text-dark {
+  color: var(--text-color) !important;
+}
+
+[data-bs-theme="dark"] .text-muted {
+  color: var(--text-muted) !important;
+}
+
+/* Headings */
+[data-bs-theme="dark"] h1,
+[data-bs-theme="dark"] h2,
+[data-bs-theme="dark"] h3,
+[data-bs-theme="dark"] h4,
+[data-bs-theme="dark"] h5,
+[data-bs-theme="dark"] h6 {
+  color: var(--heading-color) !important;
+}
+
+/* Forms */
+[data-bs-theme="dark"] .form-control,
+[data-bs-theme="dark"] .form-select,
+[data-bs-theme="dark"] input,
+[data-bs-theme="dark"] select,
+[data-bs-theme="dark"] textarea {
+  background-color: var(--input-bg) !important;
+  border-color: var(--input-border) !important;
+  color: var(--text-color) !important;
+}
+
+[data-bs-theme="dark"] .form-control:focus,
+[data-bs-theme="dark"] .form-select:focus,
+[data-bs-theme="dark"] input:focus,
+[data-bs-theme="dark"] select:focus,
+[data-bs-theme="dark"] textarea:focus {
+  background-color: var(--input-bg) !important;
+  border-color: #3498db !important;
+  color: var(--text-color) !important;
+}
+
+[data-bs-theme="dark"] .form-control::placeholder,
+[data-bs-theme="dark"] input::placeholder,
+[data-bs-theme="dark"] textarea::placeholder {
+  color: var(--text-muted) !important;
+}
+
+/* Labels */
+[data-bs-theme="dark"] label {
+  color: var(--text-color) !important;
+}
+
+/* Buttons */
+[data-bs-theme="dark"] .btn-outline-warning {
+  border-color: #ff8c00;
+  color: #ff8c00;
+}
+
+[data-bs-theme="dark"] .btn-outline-warning:hover {
+  background-color: #ff8c00;
+  border-color: #ff8c00;
+  color: white;
+}
+
+/* Lists */
+[data-bs-theme="dark"] .list-unstyled li {
+  color: var(--text-color) !important;
+}
+
+/* Borders */
+[data-bs-theme="dark"] .border {
+  border-color: var(--border-color) !important;
+}
+
+[data-bs-theme="dark"] .border-0 {
+  border-color: transparent !important;
+}
+
+/* Shadows */
+[data-bs-theme="dark"] .shadow,
+[data-bs-theme="dark"] .shadow-lg {
+  box-shadow: 0 0.5rem 1rem var(--shadow-color) !important;
 }
 
 

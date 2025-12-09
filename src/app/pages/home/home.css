@@ -24,3 +24,12 @@ h1 {
 .card:hover {
   transform: translateY(-5px);
 }
+
+/* Dark mode styles */
+[data-bs-theme="dark"] h1 {
+  color: #e0e0e0 !important;
+}
+
+[data-bs-theme="dark"] section {
+  background-color: var(--section-bg);
+}

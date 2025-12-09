@@ -1,5 +1,4 @@
 import { Component} from '@angular/core';
-import { CarouselModule } from 'ngx-owl-carousel-o';
 import { CommonModule } from '@angular/common';
 
 
@@ -7,7 +6,7 @@ import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-trusted-by',
-  imports: [CarouselModule,CommonModule],
+  imports: [CommonModule],
   templateUrl: './trusted-by.html',
   styleUrl: './trusted-by.css',
 })

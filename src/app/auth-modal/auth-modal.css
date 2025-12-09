@@ -30,6 +30,7 @@
   border: none;
   font-size: 30px;
   cursor: pointer;
+  color: #333;
 }
 
 @keyframes fadeIn {
@@ -40,4 +41,18 @@
 @keyframes scaleIn {
   from { transform: scale(0.85); opacity: 0; }
   to { transform: scale(1); opacity: 1; }
+}
+
+/* Dark mode styles */
+[data-bs-theme="dark"] .modal {
+  background: var(--card-bg) !important;
+  border: 1px solid var(--border-color);
+}
+
+[data-bs-theme="dark"] .close-btn {
+  color: var(--text-color) !important;
+}
+
+[data-bs-theme="dark"] .close-btn:hover {
+  color: var(--text-muted) !important;
 }

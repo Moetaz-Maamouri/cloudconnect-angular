@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm" [class.navbar-dark]="themeService.isDarkMode()" [class.bg-dark]="themeService.isDarkMode()">
   <div class="container">
     <a class="navbar-brand fw-bold text-primary" routerLink="/">
       <img src="assets/logo_vector.png" alt="Cloud Connect" height="60" class="me-2" />
@@ -13,14 +13,27 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-auto">
+      <ul class="navbar-nav ms-auto align-items-center">
         <li class="nav-item"><a class="nav-link" routerLink="/">Home</a></li>
         <li class="nav-item"><a class="nav-link" routerLink="/features">Features</a></li>
         <li class="nav-item"><a class="nav-link" routerLink="/pricing">Pricing</a></li>
         <li class="nav-item"><a class="nav-link" routerLink="/faq">FAQ</a></li>
         <li class="nav-item"><a class="nav-link" routerLink="/contact">Contact</a></li>
-<button class="auth-button" (click)="openAuthModal('signin')">Log in</button>
-<button class="auth-button auth-button-outline" (click)="openAuthModal('signup')">Sign up</button>
+        <li class="nav-item">
+          <button 
+            class="theme-toggle-btn" 
+            (click)="toggleDarkMode()"
+            [attr.aria-label]="themeService.isDarkMode() ? 'Switch to light mode' : 'Switch to dark mode'"
+            title="{{ themeService.isDarkMode() ? 'Switch to light mode' : 'Switch to dark mode' }}">
+            <i class="bi" [class.bi-sun-fill]="!themeService.isDarkMode()" [class.bi-moon-fill]="themeService.isDarkMode()"></i>
+          </button>
+        </li>
+        <li class="nav-item">
+          <button class="auth-button" (click)="openAuthModal('signin')">Log in</button>
+        </li>
+        <li class="nav-item">
+          <button class="auth-button auth-button-outline" (click)="openAuthModal('signup')">Sign up</button>
+        </li>
 
 <!-- Place modal outside navbar
 <app-auth-modal

@@ -222,6 +222,85 @@ input:focus {
     text-decoration: none;
 }
 
+/* Dark mode styles */
+[data-bs-theme="dark"] .auth-form {
+    background: var(--card-bg) !important;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3) !important;
+    border: 1px solid var(--border-color);
+}
+
+[data-bs-theme="dark"] h2 {
+    color: #e0e0e0 !important;
+}
+
+[data-bs-theme="dark"] .auth-desc {
+    color: var(--text-muted) !important;
+}
+
+[data-bs-theme="dark"] label {
+    color: var(--text-color) !important;
+}
+
+[data-bs-theme="dark"] input,
+[data-bs-theme="dark"] select {
+    background-color: var(--input-bg) !important;
+    border-color: var(--input-border) !important;
+    color: var(--text-color) !important;
+}
+
+[data-bs-theme="dark"] input:focus,
+[data-bs-theme="dark"] select:focus {
+    border-color: var(--primary-color) !important;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2) !important;
+}
+
+[data-bs-theme="dark"] input::placeholder {
+    color: var(--text-muted) !important;
+}
+
+[data-bs-theme="dark"] .input-wrapper i {
+    color: var(--text-muted) !important;
+}
+
+[data-bs-theme="dark"] .toggle-password {
+    color: var(--text-muted) !important;
+}
+
+[data-bs-theme="dark"] .remember-me {
+    color: var(--text-muted) !important;
+}
+
+[data-bs-theme="dark"] .switch-form {
+    color: var(--text-muted) !important;
+}
+
+[data-bs-theme="dark"] .social-login p {
+    color: var(--text-muted) !important;
+}
+
+[data-bs-theme="dark"] .social-login p::before,
+[data-bs-theme="dark"] .social-login p::after {
+    background: var(--border-color) !important;
+}
+
+[data-bs-theme="dark"] .btn-social {
+    background: var(--card-bg) !important;
+    border-color: var(--border-color) !important;
+    color: var(--text-color) !important;
+}
+
+[data-bs-theme="dark"] .btn-social:hover {
+    background: var(--input-bg) !important;
+}
+
+[data-bs-theme="dark"] .btn-github i {
+    color: #e0e0e0 !important;
+}
+
+[data-bs-theme="dark"] .terms {
+    color: var(--text-muted) !important;
+}
+
 @media (max-width: 480px) {
     .auth-container {
         margin: 20px auto;

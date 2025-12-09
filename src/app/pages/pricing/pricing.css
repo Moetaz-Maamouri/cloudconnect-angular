@@ -35,3 +35,21 @@ h2 {
   justify-content: center;
 }
 
+/* Dark mode styles */
+[data-bs-theme="dark"] h2 {
+  color: #e0e0e0 !important;
+}
+
+[data-bs-theme="dark"] .card:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+}
+
+[data-bs-theme="dark"] .form-check {
+  background-color: var(--card-bg);
+  border-color: var(--border-color);
+}
+
+[data-bs-theme="dark"] .form-check-label {
+  color: var(--text-color);
+}
+
