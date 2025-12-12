@@ -1,186 +1,204 @@
+<div class="auth-page-wrapper">
 <div class="auth-container">
-    <!-- Sign In Form -->
-    <div class="auth-form" [class.active]="!showSignUp">
-        <h2>Sign In</h2>
-        <p class="auth-desc">Log in to your CloudConnect account</p>
-
-        <form [formGroup]="signInForm" (ngSubmit)="onSignIn()">
-            <div class="form-group">
-                <label for="signInEmail">Email</label>
-                <div class="input-wrapper">
-                    <i class="fas fa-envelope"></i>
-                    <input
-                        type="email"
-                        id="signInEmail"
-                        formControlName="email"
-                        placeholder="your@email.com">
-                </div>
-                <div class="error-message" *ngIf="signInForm.get('email')?.errors?.['required'] && signInForm.get('email')?.touched">
-                    Email is required
-                </div>
-                <div class="error-message" *ngIf="signInForm.get('email')?.errors?.['email'] && signInForm.get('email')?.touched">
-                    Please enter a valid email address
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="signInPassword">Password</label>
-                <div class="input-wrapper">
-                    <i class="fas fa-lock"></i>
-                    <input
-                        [type]="showPassword ? 'text' : 'password'"
-                        id="signInPassword"
-                        formControlName="password"
-                        placeholder="Your password">
-                    <button type="button" class="toggle-password" (click)="togglePassword()">
-                        <i [class]="showPassword ? 'fas fa-eye-slash' : 'fas fa-eye'"></i>
-                    </button>
-                </div>
-                <div class="error-message" *ngIf="signInForm.get('password')?.errors?.['required'] && signInForm.get('password')?.touched">
-                    Password is required
-                </div>
-            </div>
-
-            <div class="form-options">
-                <label class="remember-me">
-                    <input type="checkbox" formControlName="rememberMe">
-                    <span>Remember me</span>
-                </label>
-                <a href="/reset-password" class="forgot-password">Forgot password?</a>
-            </div>
-
-            <button type="submit" class="btn-submit" [disabled]="signInForm.invalid">
-                Sign In
-            </button>
-        </form>
-
-        <p class="switch-form">
-            Don't have an account?
-            <a href="javascript:void(0)" (click)="toggleForm()">Create an account</a>
-        </p>
-
-        <div class="social-login">
-            <p>Or continue with</p>
-            <div class="social-buttons">
-                <button type="button" class="btn-social btn-google">
-                    <img src="assets/logo_google.png" alt="" height="32" width="32">
-                    <i class="fab fa-google"></i> Google
-                </button>
-                <button type="button" class="btn-social btn-github">
-                    <img src="assets/logo_github.png" alt="" height="32" width="32">
-                    <i class="fab fa-github"></i> GitHub
-                </button>
-            </div>
-        </div>
+  <div class="auth-header">
+    <div class="pill-switch">
+      <button type="button" class="pill" [class.active]="!showSignUp" (click)="setForm('signin')">
+        <i class="bi bi-unlock"></i>
+        Sign In
+      </button>
+      <button type="button" class="pill" [class.active]="showSignUp" (click)="setForm('signup')">
+        <i class="bi bi-person-plus"></i>
+        Create account
+      </button>
     </div>
-
-    <!-- Sign Up Form -->
-    <div class="auth-form" [class.active]="showSignUp">
-        <h2>Create an Account</h2>
-        <p class="auth-desc">Join CloudConnect and start hosting your projects</p>
-
-        <form [formGroup]="signUpForm" (ngSubmit)="onSignUp()">
-            <div class="form-group">
-                <label for="signUpName">Full Name</label>
-                <div class="input-wrapper">
-                    <i class="fas fa-user"></i>
-                    <input
-                        type="text"
-                        id="signUpName"
-                        formControlName="name"
-                        placeholder="Your full name">
-                </div>
-                <div class="error-message" *ngIf="signUpForm.get('name')?.errors?.['required'] && signUpForm.get('name')?.touched">
-                    Name is required
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="signUpEmail">Email</label>
-                <div class="input-wrapper">
-                    <i class="fas fa-envelope"></i>
-                    <input
-                        type="email"
-                        id="signUpEmail"
-                        formControlName="email"
-                        placeholder="your@email.com">
-                </div>
-                <div class="error-message" *ngIf="signUpForm.get('email')?.errors?.['required'] && signUpForm.get('email')?.touched">
-                    Email is required
-                </div>
-                <div class="error-message" *ngIf="signUpForm.get('email')?.errors?.['email'] && signUpForm.get('email')?.touched">
-                    Please enter a valid email address
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="signUpPassword">Password</label>
-                <div class="input-wrapper">
-                    <i class="fas fa-lock"></i>
-                    <input
-                        [type]="showPassword ? 'text' : 'password'"
-                        id="signUpPassword"
-                        formControlName="password"
-                        placeholder="Choose a password">
-                    <button type="button" class="toggle-password" (click)="togglePassword()">
-                        <i [class]="showPassword ? 'fas fa-eye-slash' : 'fas fa-eye'"></i>
-                    </button>
-                </div>
-                <div class="error-message" *ngIf="signUpForm.get('password')?.errors?.['required'] && signUpForm.get('password')?.touched">
-                    Password is required
-                </div>
-                <div class="error-message" *ngIf="signUpForm.get('password')?.errors?.['minlength'] && signUpForm.get('password')?.touched">
-                    Password must be at least 8 characters long
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="signUpConfirmPassword">Confirm Password</label>
-                <div class="input-wrapper">
-                    <i class="fas fa-lock"></i>
-                    <input
-                        [type]="showPassword ? 'text' : 'password'"
-                        id="signUpConfirmPassword"
-                        formControlName="confirmPassword"
-                        placeholder="Confirm your password">
-                </div>
-                <div class="error-message" *ngIf="signUpForm.errors?.['passwordMismatch'] && signUpForm.get('confirmPassword')?.touched">
-                    Passwords do not match
-                </div>
-            </div>
-
-            <div class="form-group terms">
-                <label class="checkbox-label">
-                    <input type="checkbox" formControlName="terms">
-                    <span>I agree to the <a href="/terms">Terms of Use</a> and <a href="/privacy">Privacy Policy</a></span>
-                </label>
-                <div class="error-message" *ngIf="signUpForm.get('terms')?.errors?.['required'] && signUpForm.get('terms')?.touched">
-                    You must accept the terms of use
-                </div>
-            </div>
-
-            <button type="submit" class="btn-submit" [disabled]="signUpForm.invalid">
-                Create my account
-            </button>
-        </form>
-
-        <p class="switch-form">
-            Already a member?
-            <a href="javascript:void(0)" (click)="toggleForm()">Sign in</a>
-        </p>
-
-        <div class="social-login">
-            <p>Or sign up with</p>
-            <div class="social-buttons">
-                <button type="button" class="btn-social btn-google">
-                    <img src="assets/logo_google.png" alt="" height="32" width="32">
-                    <i class="fab fa-google"></i> Google
-                </button>
-                <button type="button" class="btn-social btn-github">
-                    <img src="assets/logo_github.png" alt="" height="32" width="32">
-                    <i class="fab fa-github"></i> GitHub
-                </button>
-            </div>
-        </div>
+    <div class="badge-chip">
+      <span class="dot"></span>
+      New security stack · Free SSL
     </div>
+  </div>
+
+  <div class="auth-form" [class.active]="!showSignUp">
+    <h2>Welcome back</h2>
+    <p class="auth-desc">Log in to access your dashboard and services.</p>
+
+    <form [formGroup]="signInForm" (ngSubmit)="onSignIn()" class="form-grid">
+      <div class="form-group">
+        <label for="signInEmail">Email</label>
+        <div class="input-wrapper">
+          <i class="bi bi-envelope"></i>
+          <input
+            type="email"
+            id="signInEmail"
+            formControlName="email"
+            placeholder="you@example.com">
+        </div>
+        <div class="error-message" *ngIf="signInForm.get('email')?.errors?.['required'] && signInForm.get('email')?.touched">
+          Email is required
+        </div>
+        <div class="error-message" *ngIf="signInForm.get('email')?.errors?.['email'] && signInForm.get('email')?.touched">
+          Please enter a valid email address
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="signInPassword">Password</label>
+        <div class="input-wrapper">
+          <i class="bi bi-shield-lock"></i>
+          <input
+            [type]="showPassword ? 'text' : 'password'"
+            id="signInPassword"
+            formControlName="password"
+            placeholder="Your password">
+          <button type="button" class="toggle-password" (click)="togglePassword()">
+            <i [class]="showPassword ? 'bi bi-eye-slash' : 'bi bi-eye'"></i>
+          </button>
+        </div>
+        <div class="error-message" *ngIf="signInForm.get('password')?.errors?.['required'] && signInForm.get('password')?.touched">
+          Password is required
+        </div>
+      </div>
+
+      <div class="form-options">
+        <label class="remember-me">
+          <input type="checkbox" formControlName="rememberMe">
+          <span>Remember me</span>
+        </label>
+        <a href="/reset-password" class="forgot-password">Forgot password?</a>
+      </div>
+
+      <button type="submit" class="btn-submit" [disabled]="signInForm.invalid">
+        Sign In
+      </button>
+    </form>
+
+    <p class="switch-form">
+      Don't have an account?
+      <a href="javascript:void(0)" (click)="setForm('signup')">Create an account</a>
+    </p>
+
+    <div class="social-login">
+      <p>Or continue with</p>
+      <div class="social-buttons">
+        <button type="button" class="btn-social btn-google">
+          <img src="assets/logo_google.png" alt="" height="28" width="28">
+          Google
+        </button>
+        <button type="button" class="btn-social btn-github">
+          <img src="assets/logo_github.png" alt="" height="28" width="28">
+          GitHub
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="auth-form" [class.active]="showSignUp">
+    <h2>Create your account</h2>
+    <p class="auth-desc">Spin up secure hosting with free SSL and 24/7 support.</p>
+
+    <form [formGroup]="signUpForm" (ngSubmit)="onSignUp()" class="form-grid">
+      <div class="form-group">
+        <label for="signUpName">Full Name</label>
+        <div class="input-wrapper">
+          <i class="bi bi-person"></i>
+          <input
+            type="text"
+            id="signUpName"
+            formControlName="name"
+            placeholder="Your full name">
+        </div>
+        <div class="error-message" *ngIf="signUpForm.get('name')?.errors?.['required'] && signUpForm.get('name')?.touched">
+          Name is required
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="signUpEmail">Email</label>
+        <div class="input-wrapper">
+          <i class="bi bi-envelope"></i>
+          <input
+            type="email"
+            id="signUpEmail"
+            formControlName="email"
+            placeholder="you@example.com">
+        </div>
+        <div class="error-message" *ngIf="signUpForm.get('email')?.errors?.['required'] && signUpForm.get('email')?.touched">
+          Email is required
+        </div>
+        <div class="error-message" *ngIf="signUpForm.get('email')?.errors?.['email'] && signUpForm.get('email')?.touched">
+          Please enter a valid email address
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="signUpPassword">Password</label>
+        <div class="input-wrapper">
+          <i class="bi bi-shield-lock"></i>
+          <input
+            [type]="showPassword ? 'text' : 'password'"
+            id="signUpPassword"
+            formControlName="password"
+            placeholder="Choose a password">
+          <button type="button" class="toggle-password" (click)="togglePassword()">
+            <i [class]="showPassword ? 'bi bi-eye-slash' : 'bi bi-eye'"></i>
+          </button>
+        </div>
+        <div class="helper-text">Use 8+ characters with letters and numbers.</div>
+        <div class="error-message" *ngIf="signUpForm.get('password')?.errors?.['required'] && signUpForm.get('password')?.touched">
+          Password is required
+        </div>
+        <div class="error-message" *ngIf="signUpForm.get('password')?.errors?.['minlength'] && signUpForm.get('password')?.touched">
+          Password must be at least 8 characters long
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="signUpConfirmPassword">Confirm Password</label>
+        <div class="input-wrapper">
+          <i class="bi bi-check2-circle"></i>
+          <input
+            [type]="showPassword ? 'text' : 'password'"
+            id="signUpConfirmPassword"
+            formControlName="confirmPassword"
+            placeholder="Confirm your password">
+        </div>
+        <div class="error-message" *ngIf="signUpForm.errors?.['passwordMismatch'] && signUpForm.get('confirmPassword')?.touched">
+          Passwords do not match
+        </div>
+      </div>
+
+      <div class="form-group terms">
+        <label class="checkbox-label">
+          <input type="checkbox" formControlName="terms">
+          <span>I agree to the <a href="/terms">Terms of Use</a> and <a href="/privacy">Privacy Policy</a></span>
+        </label>
+        <div class="error-message" *ngIf="signUpForm.get('terms')?.errors?.['required'] && signUpForm.get('terms')?.touched">
+          You must accept the terms of use
+        </div>
+      </div>
+
+      <button type="submit" class="btn-submit" [disabled]="signUpForm.invalid">
+        Create my account
+      </button>
+    </form>
+
+    <p class="switch-form">
+      Already a member?
+      <a href="javascript:void(0)" (click)="setForm('signin')">Sign in</a>
+    </p>
+
+    <div class="social-login">
+      <p>Or sign up with</p>
+      <div class="social-buttons">
+        <button type="button" class="btn-social btn-google">
+          <img src="assets/logo_google.png" alt="" height="28" width="28">
+          Google
+        </button>
+        <button type="button" class="btn-social btn-github">
+          <img src="assets/logo_github.png" alt="" height="28" width="28">
+          GitHub
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
 </div>

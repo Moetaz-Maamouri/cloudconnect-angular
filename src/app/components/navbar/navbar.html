@@ -1,49 +1,61 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm" [class.navbar-dark]="themeService.isDarkMode()" [class.bg-dark]="themeService.isDarkMode()">
+<nav class="navbar navbar-expand-lg premium-nav">
   <div class="container">
-    <a class="navbar-brand fw-bold text-primary" routerLink="/">
-      <img src="assets/logo_vector.png" alt="Cloud Connect" height="60" class="me-2" />
-
+    <a class="navbar-brand d-flex align-items-center gap-2" routerLink="/">
+      <span class="brand-mark">
+        <img src="assets/logo_vector.png" alt="Cloud Connect" height="42" width="42" loading="lazy" />
+      </span>
+      <span class="brand-text">
+        Cloud<span class="brand-accent">Connect</span>
+      </span>
     </a>
+
     <button
-      class="navbar-toggler"
+      class="navbar-toggler premium-toggler"
       type="button"
       data-bs-toggle="collapse"
       data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
     >
-      <span class="navbar-toggler-icon"></span>
+      <span class="toggler-line"></span>
+      <span class="toggler-line"></span>
+      <span class="toggler-line"></span>
     </button>
+
     <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-auto align-items-center">
-        <li class="nav-item"><a class="nav-link" routerLink="/">Home</a></li>
-        <li class="nav-item"><a class="nav-link" routerLink="/features">Features</a></li>
-        <li class="nav-item"><a class="nav-link" routerLink="/pricing">Pricing</a></li>
-        <li class="nav-item"><a class="nav-link" routerLink="/faq">FAQ</a></li>
-        <li class="nav-item"><a class="nav-link" routerLink="/contact">Contact</a></li>
+      <ul class="navbar-nav ms-auto align-items-center gap-lg-2">
         <li class="nav-item">
-          <button 
-            class="theme-toggle-btn" 
+          <a class="nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/features" routerLinkActive="active">Features</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/pricing" routerLinkActive="active">Pricing</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/faq" routerLinkActive="active">FAQ</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/contact" routerLinkActive="active">Contact</a>
+        </li>
+
+        <li class="nav-item d-flex align-items-center gap-2 ms-lg-3">
+          <button
+            class="icon-button theme-toggle-btn"
             (click)="toggleDarkMode()"
             [attr.aria-label]="themeService.isDarkMode() ? 'Switch to light mode' : 'Switch to dark mode'"
-            title="{{ themeService.isDarkMode() ? 'Switch to light mode' : 'Switch to dark mode' }}">
+            title="{{ themeService.isDarkMode() ? 'Switch to light mode' : 'Switch to dark mode' }}"
+          >
             <i class="bi" [class.bi-sun-fill]="!themeService.isDarkMode()" [class.bi-moon-fill]="themeService.isDarkMode()"></i>
           </button>
+          <button class="auth-button ghost" (click)="openAuthModal('signin')">Log in</button>
+          <button class="auth-button solid" (click)="openAuthModal('signup')">
+            Get Started
+            <i class="bi bi-arrow-right-short ms-1"></i>
+          </button>
         </li>
-        <li class="nav-item">
-          <button class="auth-button" (click)="openAuthModal('signin')">Log in</button>
-        </li>
-        <li class="nav-item">
-          <button class="auth-button auth-button-outline" (click)="openAuthModal('signup')">Sign up</button>
-        </li>
-
-<!-- Place modal outside navbar
-<app-auth-modal
-    [isOpen]="authModalOpen"
-    [mode]="authMode"
-    (close)="closeAuthModal()">
-</app-auth-modal>-->
-
-
-
       </ul>
     </div>
   </div>

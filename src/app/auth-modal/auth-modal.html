@@ -1,26 +1,26 @@
 <div class="modal-backdrop" *ngIf="isOpen">
-  <div class="modal">
-    <button class="close-btn" (click)="closeModal()">×</button>
-
-    <!-- Auth Container Inside Modal -->
-    <div class="auth-container">
-
-        <!-- Sign In Form -->
-        <div class="auth-form" [class.active]="!showSignUp">
-            <h2>Sign In</h2>
-            <p class="auth-desc">Log in to your CloudConnect account</p>
-
-            <!-- (Ton formulaire reactif ici — identique à ce que tu avais) -->
+  <div class="modal-shell">
+    <div class="modal-surface">
+      <button class="close-btn" (click)="closeModal()" aria-label="Close">×</button>
+      <div class="modal-grid">
+        <div class="modal-visual">
+          <div class="visual-orb orb-a"></div>
+          <div class="visual-orb orb-b"></div>
+          <div class="visual-copy">
+            <p class="eyebrow">CloudConnect</p>
+            <h3>Secure, fast, always-on hosting</h3>
+            <p class="subtext">Join 50,000+ teams building on our platform.</p>
+            <ul>
+              <li><i class="bi bi-check-circle"></i> 99.9% uptime SLA</li>
+              <li><i class="bi bi-check-circle"></i> Free SSL & DDoS protection</li>
+              <li><i class="bi bi-check-circle"></i> 24/7 expert support</li>
+            </ul>
+          </div>
         </div>
-
-        <!-- Sign Up Form -->
-        <div class="auth-form" [class.active]="showSignUp">
-            <h2>Create an Account</h2>
-            <p class="auth-desc">Join CloudConnect and start hosting your projects</p>
-
-            <!-- (Ton formulaire signup ici — identique) -->
+        <div class="modal-form">
+          <app-insecription></app-insecription>
         </div>
-
+      </div>
     </div>
   </div>
 </div>

@@ -1,31 +1,44 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { Insecription } from '../components/insecription/insecription';
+import { ModalService } from '../services/modal.service';
 
 @Component({
   selector: 'app-auth-modal',
-  imports: [CommonModule],
+  imports: [CommonModule, Insecription],
   standalone: true,
   templateUrl: './auth-modal.html',
   styleUrls: ['./auth-modal.css']
 })
-export class AuthModalComponent {
-  
-  @Input() isOpen = false;
-  @Input() mode: 'signin' | 'signup' = 'signin'; 
+export class AuthModalComponent implements OnInit, OnDestroy {
+  isOpen = false;
+  mode: 'signin' | 'signup' = 'signin';
 
-  @Output() close = new EventEmitter<void>();
+  private displaySub?: Subscription;
+  private modeSub?: Subscription;
 
-  showSignUp = false;
+  constructor(private modalService: ModalService) {}
 
-  ngOnChanges() {
-    this.showSignUp = this.mode === 'signup';
+  ngOnInit(): void {
+    this.displaySub = this.modalService.display$.subscribe((open) => {
+      this.isOpen = open;
+      document.body.style.overflow = open ? 'hidden' : 'auto';
+    });
+
+    this.modeSub = this.modalService.activeModal$.subscribe((mode) => {
+      if (mode === 'signin' || mode === 'signup') {
+        this.mode = mode;
+      }
+    });
+  }
+
+  ngOnDestroy(): void {
+    this.displaySub?.unsubscribe();
+    this.modeSub?.unsubscribe();
   }
 
   closeModal() {
-    this.close.emit();
-  }
-
-  toggleForm() {
-    this.showSignUp = !this.showSignUp;
+    this.modalService.close();
   }
 }

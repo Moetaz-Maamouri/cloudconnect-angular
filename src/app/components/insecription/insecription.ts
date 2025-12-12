@@ -65,11 +65,10 @@ export class Insecription implements OnInit, OnDestroy {
     return null;
   }
 
-  toggleForm() {
-    this.showSignUp = !this.showSignUp;
+  setForm(mode: 'signin' | 'signup') {
+    this.showSignUp = mode === 'signup';
     this.showPassword = false;
 
-    // Reset forms when switching
     if (this.showSignUp) {
       this.signInForm.reset();
     } else {
