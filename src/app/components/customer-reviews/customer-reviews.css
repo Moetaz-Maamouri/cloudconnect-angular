@@ -1,0 +1,260 @@
+.customer-reviews-section {
+  position: relative;
+  padding: 5rem 0;
+  overflow: hidden;
+  background-color: var(--section-bg);
+  transition: background-color 0.3s ease;
+}
+
+[data-bs-theme="dark"] .customer-reviews-section {
+  background-color: var(--section-bg);
+}
+
+.particles-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: radial-gradient(circle, rgba(52, 152, 219, 0.6) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: moveParticles 20s infinite linear;
+  opacity: 0.4;
+}
+
+[data-bs-theme="dark"] .particle {
+  background: radial-gradient(circle, rgba(52, 152, 219, 0.8) 0%, transparent 70%);
+  opacity: 0.6;
+}
+
+.particle:nth-child(1) { left: 10%; animation-delay: 0s; animation-duration: 15s; }
+.particle:nth-child(2) { left: 20%; animation-delay: 1s; animation-duration: 18s; }
+.particle:nth-child(3) { left: 30%; animation-delay: 2s; animation-duration: 22s; }
+.particle:nth-child(4) { left: 40%; animation-delay: 0.5s; animation-duration: 16s; }
+.particle:nth-child(5) { left: 50%; animation-delay: 1.5s; animation-duration: 20s; }
+.particle:nth-child(6) { left: 60%; animation-delay: 2.5s; animation-duration: 17s; }
+.particle:nth-child(7) { left: 70%; animation-delay: 0.8s; animation-duration: 19s; }
+.particle:nth-child(8) { left: 80%; animation-delay: 1.8s; animation-duration: 21s; }
+.particle:nth-child(9) { left: 90%; animation-delay: 0.3s; animation-duration: 16s; }
+.particle:nth-child(10) { left: 15%; animation-delay: 1.2s; animation-duration: 18s; }
+.particle:nth-child(11) { left: 25%; animation-delay: 2.2s; animation-duration: 20s; }
+.particle:nth-child(12) { left: 35%; animation-delay: 0.7s; animation-duration: 17s; }
+.particle:nth-child(13) { left: 45%; animation-delay: 1.7s; animation-duration: 19s; }
+.particle:nth-child(14) { left: 55%; animation-delay: 0.4s; animation-duration: 21s; }
+.particle:nth-child(15) { left: 65%; animation-delay: 1.4s; animation-duration: 16s; }
+
+@keyframes moveParticles {
+  0% {
+    transform: translateY(100vh) translateX(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.4;
+  }
+  90% {
+    opacity: 0.4;
+  }
+  100% {
+    transform: translateY(-100vh) translateX(20px);
+    opacity: 0;
+  }
+}
+
+.customer-reviews-section .container {
+  position: relative;
+  z-index: 1;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--heading-color);
+  margin-bottom: 1rem;
+  opacity: 0;
+  animation: fadeIn 0.8s ease forwards;
+}
+
+.section-subtitle {
+  font-size: 1.125rem;
+  color: var(--text-muted);
+  margin-bottom: 0;
+  opacity: 0;
+  animation: fadeIn 0.8s ease 0.2s forwards;
+}
+
+.review-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 1.75rem;
+  height: 100%;
+  box-shadow: 0 2px 8px var(--shadow-color);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.review-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+  animation: floatCard 6s ease-in-out infinite;
+}
+
+.row > div:nth-child(1) .review-card.visible { animation-delay: 0s; }
+.row > div:nth-child(2) .review-card.visible { animation-delay: 0.1s; }
+.row > div:nth-child(3) .review-card.visible { animation-delay: 0.2s; }
+.row > div:nth-child(4) .review-card.visible { animation-delay: 0.3s; }
+.row > div:nth-child(5) .review-card.visible { animation-delay: 0.4s; }
+.row > div:nth-child(6) .review-card.visible { animation-delay: 0.5s; }
+
+.review-card.visible:hover {
+  animation: none;
+  transform: translateY(-8px) scale(1.03) !important;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+  border-color: rgba(52, 152, 219, 0.3);
+}
+
+[data-bs-theme="dark"] .review-card.visible:hover {
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
+  border-color: rgba(52, 152, 219, 0.5);
+}
+
+.review-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.review-avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--border-color);
+  flex-shrink: 0;
+}
+
+.review-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.review-name {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--heading-color);
+  margin: 0 0 0.25rem 0;
+  line-height: 1.4;
+}
+
+.review-role {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  margin: 0;
+  line-height: 1.4;
+}
+
+.review-rating {
+  margin-bottom: 1rem;
+  display: flex;
+  gap: 0.25rem;
+}
+
+.star {
+  font-size: 1.25rem;
+  color: #ffc107;
+  opacity: 0;
+  transform: scale(0);
+}
+
+.review-card.visible .star {
+  animation: pulseStar 0.4s ease forwards;
+}
+
+.review-card.visible .star:nth-child(1) { animation-delay: 0.1s; }
+.review-card.visible .star:nth-child(2) { animation-delay: 0.15s; }
+.review-card.visible .star:nth-child(3) { animation-delay: 0.2s; }
+.review-card.visible .star:nth-child(4) { animation-delay: 0.25s; }
+.review-card.visible .star:nth-child(5) { animation-delay: 0.3s; }
+
+.review-text {
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  color: var(--text-color);
+  margin: 0;
+}
+
+@keyframes floatCard {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes pulseStar {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 2rem;
+  }
+  
+  .section-subtitle {
+    font-size: 1rem;
+  }
+  
+  .review-card {
+    padding: 1.5rem;
+  }
+  
+  .customer-reviews-section {
+    padding: 3rem 0;
+  }
+}
+
+@media (max-width: 576px) {
+  .section-title {
+    font-size: 1.75rem;
+  }
+  
+  .review-card {
+    padding: 1.25rem;
+  }
+  
+  .review-avatar {
+    width: 48px;
+    height: 48px;
+  }
+  
+  .review-name {
+    font-size: 1rem;
+  }
+  
+  .review-text {
+    font-size: 0.875rem;
+  }
+}
+

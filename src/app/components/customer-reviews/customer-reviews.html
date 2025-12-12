@@ -1,0 +1,44 @@
+<section class="customer-reviews-section">
+  <div class="particles-background">
+    @for (i of [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]; track i) {
+      <div class="particle"></div>
+    }
+  </div>
+  
+  <div class="container py-5">
+    <div class="text-center mb-5">
+      <h2 class="section-title">What Our Customers Say</h2>
+      <p class="section-subtitle">Trusted by thousands of businesses worldwide</p>
+    </div>
+
+    <div class="row g-4">
+      @for (review of reviews; track review.id) {
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="review-card">
+            <div class="review-header">
+              <img 
+                [src]="review.avatar" 
+                [alt]="review.name"
+                class="review-avatar"
+                loading="lazy"
+              />
+              <div class="review-info">
+                <h5 class="review-name">{{ review.name }}</h5>
+                <p class="review-role">{{ review.role }} · {{ review.company }}</p>
+              </div>
+            </div>
+            
+            <div class="review-rating">
+              @for (star of getStars(review.rating); track $index) {
+                <span class="star">★</span>
+              }
+            </div>
+            
+            <p class="review-text">{{ review.text }}</p>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
