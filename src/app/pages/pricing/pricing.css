@@ -53,3 +53,34 @@ h2 {
   color: var(--text-color);
 }
 
+.form-select {
+  appearance: none; /* Supprime le style par défaut */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  padding: 0.75rem 1rem;
+  border: 2px solid #ffc107;
+  border-radius: 0.75rem;
+  background-color: #fff;
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D'10'%20height%3D'6'%20viewBox%3D'0%200%2010%206'%20xmlns%3D'http://www.w3.org/2000/svg'%3E%3Cpath%20d%3D'M0%200l5%206%205-6z'%20fill%3D'%23ffc107'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 10px 6px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.form-select:hover {
+  border-color: #e0a800;
+  box-shadow: 0 0 8px rgba(255, 193, 7, 0.3);
+}
+
+.form-select:focus {
+  outline: none;
+  border-color: #ffc107;
+  box-shadow: 0 0 10px rgba(255, 193, 7, 0.4);
+}
+
+
+

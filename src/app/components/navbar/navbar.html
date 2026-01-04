@@ -1,12 +1,8 @@
 <nav class="navbar navbar-expand-lg premium-nav">
   <div class="container">
     <a class="navbar-brand d-flex align-items-center gap-2" routerLink="/">
-      <span class="brand-mark">
-        <img src="assets/logo_vector.png" alt="Cloud Connect" height="42" width="42" loading="lazy" />
-      </span>
-      <span class="brand-text">
-        Cloud<span class="brand-accent">Connect</span>
-      </span>
+        <img src="assets/logo_vector.png" alt="Cloud Connect" height="80%" width="70" loading="lazy"  />
+
     </a>
 
     <button
@@ -34,6 +30,21 @@
         <li class="nav-item">
           <a class="nav-link" routerLink="/pricing" routerLinkActive="active">Pricing</a>
         </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button"
+             data-bs-toggle="dropdown" aria-expanded="false">
+            Services
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
+            <li><a class="nav-link dropdown-item" routerLink="/pricing">Hosting</a></li>
+            <li><a class="nav-link dropdown-item" routerLink="/services/control">Control panel</a></li>
+            <li><a class="nav-link dropdown-item" routerLink="/services/backup">Backup</a></li>
+            <li><a class="nav-link dropdown-item" routerLink="/services/security">Security</a></li>
+            <li><a class="nav-link dropdown-item" routerLink="/services">Divers</a></li>
+            <li><a class="nav-link dropdown-item" routerLink="/services">Infogérances</a></li>
+          </ul>
+        </li>
+
         <li class="nav-item">
           <a class="nav-link" routerLink="/faq" routerLinkActive="active">FAQ</a>
         </li>

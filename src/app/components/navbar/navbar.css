@@ -9,6 +9,10 @@
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
   transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
+.navbar-toggler{
+  visibility: hidden;
+}
+
 
 [data-bs-theme="dark"] .premium-nav {
   background: rgba(15, 23, 32, 0.9);
@@ -162,7 +166,8 @@
 }
 
 .auth-button.solid {
-  background: linear-gradient(135deg, #3498db, #9b59b6);
+  background: linear-gradient(135deg, #002b80 0%, #3399ff 100%);
+
   color: white;
   padding-inline: 1.35rem;
   box-shadow: 0 10px 25px rgba(52, 152, 219, 0.25);
@@ -185,7 +190,17 @@
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
 }
 
+.nav-item.dropdown:hover .dropdown-menu {
+  display: block;
+  margin-top: 0; /* pour qu’il soit collé à la navbar */
+  transition: all 0.3s ease;
+}
+
 @media (max-width: 992px) {
+
+  .navbar-toggler{
+    visibility: visible;
+  }
   .premium-nav {
     padding: 0.75rem 0;
   }
@@ -229,4 +244,5 @@
     display: none;
   }
 }
+
 

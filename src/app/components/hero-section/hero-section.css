@@ -149,7 +149,7 @@
 }
 
 .gradient-text {
-  background: linear-gradient(135deg, #0a3450 0%, #9b59b6 50%, #2ecc71 100%);
+  background: linear-gradient(135deg, #007bff 0%, #8a2be2 50%, #ff7f00 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -180,6 +180,7 @@
 }
 
 .hero-cta-primary {
+  background: linear-gradient(135deg, #ff7f00 0%, #ffb84d 100%);
   padding: 1rem 2rem;
   font-weight: 600;
   border-radius: 12px;
@@ -363,6 +364,7 @@
 }
 
 .domain-search-btn {
+  background: linear-gradient(135deg, #007bff 0%, #8a2be2 50%, #ff7f00 100%);
   padding: 0.75rem 1.5rem;
   font-weight: 600;
   border-radius: 8px;

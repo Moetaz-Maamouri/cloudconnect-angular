@@ -1,0 +1,59 @@
+.control-hero{
+  background: linear-gradient(135deg, #007bff 0%, #8a2be2 50%, #ff7f00 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 2rem;
+  font-weight: bold;
+}
+/* Dégradé pour le titre */
+.gradient-text {
+  background: linear-gradient(135deg, #007bff 0%, #8a2be2 50%, #ff7f00 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Table moderne */
+.comparison-table {
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 1rem;
+}
+
+/* En-tête sombre et arrondi */
+.comparison-table thead th {
+  background-color: #343a40;
+  color: #fff;
+  font-weight: 600;
+  padding: 1rem;
+  text-transform: uppercase;
+}
+
+/* Lignes du corps */
+.comparison-table tbody tr {
+  background-color: #fff;
+  transition: all 0.3s ease;
+}
+
+/* Hover sur les lignes */
+.comparison-table tbody tr:hover {
+  background-color: #f0f8ff;
+  transform: scale(1.01);
+}
+
+/* Cellules du corps */
+.comparison-table td {
+  padding: 1rem;
+  vertical-align: middle;
+}
+
+/* Icônes */
+.comparison-table i {
+  font-size: 1.25rem;
+}
+
+/* Responsive border radius pour le conteneur */
+.table-responsive {
+  border-radius: 1rem;
+  overflow: hidden;
+}
+

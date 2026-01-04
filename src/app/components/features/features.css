@@ -1,0 +1,26 @@
+.card {
+  transition: all 0.35s ease;
+  border-radius: 15px;
+}
+
+.card:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.card i {
+  transition: color 0.35s ease, transform 0.35s ease;
+}
+
+.card:hover i {
+  color: #ff7f00; /* orange hover */
+  transform: scale(1.15);
+}
+
+.card h5 {
+  transition: color 0.3s ease;
+}
+
+.card:hover h5 {
+  color: #007bff; /* bleu hover */
+}

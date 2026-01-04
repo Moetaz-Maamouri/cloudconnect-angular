@@ -1,0 +1,11 @@
+h1{
+  background: linear-gradient(135deg, #007bff 0%, #8a2be2 50%, #ff7f00 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block;
+}
+.btn-lg{
+  background: linear-gradient(135deg, #ff7f00 0%, #ffb84d 100%);
+  color : black;
+}
