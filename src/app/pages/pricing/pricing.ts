@@ -22,4 +22,17 @@ export class Pricing {
   setCategory(category: PricingCategory) {
     this.activeCategory = category;
   }
+  getCategoryTitle(): string {
+    switch (this.activeCategory) {
+      case 'web-hosting': return 'Web Hosting Plans';
+      case 'control-panel': return 'Control Panel Plans';
+      case 'vps': return 'VPS Hosting';
+      case 'divers': return 'Other Services';
+      case 'security': return 'Security Solutions';
+      case 'backup': return 'Backup Solutions';
+      case 'it-outsourcing': return 'IT Outsourcing Services';
+      default: return '';
+    }
+  }
+  
 }

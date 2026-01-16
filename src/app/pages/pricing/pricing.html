@@ -59,6 +59,9 @@
       </div>
     </div>
   </div>
+  <h2 class="pricing-title" *ngIf="activeCategory">
+    {{ getCategoryTitle() }}
+  </h2>
 </section>
 
 <app-web-hosting-plan *ngIf="activeCategory === 'web-hosting'"></app-web-hosting-plan>
