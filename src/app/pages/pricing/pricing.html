@@ -1,152 +1,70 @@
-<section class="py-5 bg-light text-center">
+<!-- Hero Section -->
+<section class="py-5 bg-light">
   <div class="container">
-    <h2 class="fw-bold text-primary mb-4">Choose Your Plan</h2>
-    <p class="text-muted mb-5">
-      Select a hosting plan that fits your business needs.
-    </p>
+    <!-- Header -->
+    <div class="text-center mb-5">
+      <h1 class="fw-bold text-primary mb-4">Pricing Plans</h1>
+      <p class="text-muted fs-5 mb-4">
+        Choose the perfect plan for your business needs. Flexible pricing for every requirement.
+      </p>
+    </div>
 
-    <div class="row justify-content-center">
-      <!-- 🟦 Basic Plan -->
-      <div class="col-md-4 mb-4">
-        <div class="card border-0 shadow-sm h-100">
-          <div class="card-body p-5">
-            <h5 class="card-title fw-bold text-dark mb-3">Basic</h5>
-            <h2 class="text-warning fw-bold">$5<span class="fs-6 text-muted">/mo</span></h2>
-            <ul class="list-unstyled mt-3 mb-4 text-start">
-              <li>✔ 1 Website</li>
-              <li>✔ 10 GB Storage</li>
-              <li>✔ Free SSL Certificate</li>
-              <li>✖ Email Support</li>
-            </ul>
-            <button class="btn btn-outline-warning w-100 fw-bold" routerLink="/signin">Get Started</button>
-          </div>
+    <!-- Pricing Categories -->
+    <div class="row justify-content-center mb-5">
+      <div class="col-md-10">
+        <div class="d-flex flex-wrap justify-content-center gap-2 mb-4">
+          <button class="btn" 
+                  [class.btn-warning]="activeCategory === 'web-hosting'" 
+                  [class.btn-outline-warning]="activeCategory !== 'web-hosting'" 
+                  (click)="setCategory('web-hosting')">
+            Web Hosting
+          </button>
+          <button class="btn" 
+                  [class.btn-warning]="activeCategory === 'control-panel'" 
+                  [class.btn-outline-warning]="activeCategory !== 'control-panel'" 
+                  (click)="setCategory('control-panel')">
+            Control Panel
+          </button>
+          <button class="btn" 
+                  [class.btn-warning]="activeCategory === 'backup'" 
+                  [class.btn-outline-warning]="activeCategory !== 'backup'" 
+                  (click)="setCategory('backup')">
+            Backup
+          </button>
+          <button class="btn" 
+                  [class.btn-warning]="activeCategory === 'security'" 
+                  [class.btn-outline-warning]="activeCategory !== 'security'" 
+                  (click)="setCategory('security')">
+            Security
+          </button>
+          <button class="btn" 
+                  [class.btn-warning]="activeCategory === 'divers'" 
+                  [class.btn-outline-warning]="activeCategory !== 'divers'" 
+                  (click)="setCategory('divers')">
+            Divers
+          </button>
+          <button class="btn" 
+                  [class.btn-warning]="activeCategory === 'it-outsourcing'" 
+                  [class.btn-outline-warning]="activeCategory !== 'it-outsourcing'" 
+                  (click)="setCategory('it-outsourcing')">
+            IT Outsourcing
+          </button>
+          <button class="btn" 
+                  [class.btn-warning]="activeCategory === 'vps'" 
+                  [class.btn-outline-warning]="activeCategory !== 'vps'" 
+                  (click)="setCategory('vps')">
+            VPS
+          </button>
         </div>
       </div>
-
-      <!-- 🟨 Standard Plan -->
-      <div class="col-md-4 mb-4">
-        <div class="card border-2 border-warning shadow h-100">
-          <div class="card-body p-5">
-            <h5 class="card-title fw-bold text-dark mb-3">Standard</h5>
-            <h2 class="text-warning fw-bold">$10<span class="fs-6 text-muted">/mo</span></h2>
-            <ul class="list-unstyled mt-3 mb-4 text-start">
-              <li>✔ 5 Websites</li>
-              <li>✔ 50 GB Storage</li>
-              <li>✔ Free SSL + Email Support</li>
-              <li>✔ 24/7 Customer Service</li>
-            </ul>
-            <button class="btn btn-warning text-white w-100 fw-bold" routerLink="/signin">Choose Plan</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- 🟩 Premium Plan -->
-      <div class="col-md-4 mb-4">
-        <div class="card border-0 shadow-sm h-100">
-          <div class="card-body p-5">
-            <h5 class="card-title fw-bold text-dark mb-3">Premium</h5>
-            <h2 class="text-warning fw-bold">$20<span class="fs-6 text-muted">/mo</span></h2>
-            <ul class="list-unstyled mt-3 mb-4 text-start">
-              <li>✔ Unlimited Websites</li>
-              <li>✔ 200 GB Storage</li>
-              <li>✔ Free SSL + Email Support</li>
-              <li>✔ Priority Support</li>
-            </ul>
-            <button class="btn btn-outline-warning w-100 fw-bold" routerLink="/signin">Get Started</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="container py-5">
-        <div class="mx-auto" style="max-width: 720px;">
-
-          <h2 class="fw-bold text-primary text-center mb-2">Build Your Custom Plan</h2>
-          <p class="text-muted text-center mb-4">
-            Configure a hosting plan that matches your exact needs.
-          </p>
-
-          <div class="card shadow-lg border-0 p-4 rounded-4">
-            <form>
-
-              <!-- OS Selection -->
-              <div class="mb-4">
-                <label class="card-title fw-bold text-dark mb-3">Operating System</label>
-                <select class="form-select form-select-lg rounded-3"
-                        [(ngModel)]="custom.os" name="os">
-                  <option value="linux">Linux</option>
-                  <option value="windows">Windows</option>
-                </select>
-              </div>
-
-              <!-- RAM -->
-              <div class="mb-4">
-                <label class="card-title fw-bold text-dark mb-3">Memory (RAM)</label>
-                <select class="form-select form-select-lg rounded-3"
-                        [(ngModel)]="custom.ram" name="ram">
-                  <option *ngFor="let r of ramOptions" [value]="r">
-                    {{ r }} GB
-                  </option>
-                </select>
-              </div>
-
-              <!-- Storage -->
-              <div class="mb-4">
-                <label class="card-title fw-bold text-dark mb-3">Storage</label>
-                <input type="range" class="form-range" min="20" max="500" step="10"
-                       [(ngModel)]="custom.storage" name="storage">
-                <div class="text-primary fw-bold text-center mt-1">
-                  {{ custom.storage }} GB
-                </div>
-              </div>
-
-              <!-- CPU -->
-              <div class="mb-4">
-                <label class="card-title fw-bold text-dark mb-3">CPU Cores</label>
-                <select class="form-select form-select-lg rounded-3"
-                        [(ngModel)]="custom.cpu" name="cpu">
-                  <option *ngFor="let c of cpuOptions" [value]="c">
-                    {{ c }} Core(s)
-                  </option>
-                </select>
-              </div>
-
-              <!-- Extra Services -->
-              <div class="mb-4">
-                <label class="card-title fw-bold text-dark mb-3">Additional Services</label>
-
-                <div class="d-flex flex-column gap-2">
-                  <div class="form-check p-2 border rounded-3 shadow-sm"
-                       *ngFor="let s of services">
-                    <input class="form-check-input m-1" type="checkbox"
-                           [(ngModel)]="s.selected" [name]="s.name" [id]="s.name">
-                    <label class="form-check-label ms-2" [for]="s.name">
-                      {{ s.label }} <span class="text-warning fw-bold">(+${{ s.price }})</span>
-                    </label>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Total Price -->
-              <div class="text-center bg-light py-3 rounded-3 border shadow-sm mt-4">
-                <h4 class="fw-bold mb-0">
-                  Total Price:
-                  <span class="text-primary">${{ totalPrice }}/mo</span>
-                </h4>
-              </div>
-
-              <button
-                class="btn btn-primary w-100 mt-4 fw-bold py-2 rounded-3"
-                routerLink="/signin">
-                Build My Server
-              </button>
-
-            </form>
-          </div>
-
-        </div>
-      </div>
-
     </div>
   </div>
-
 </section>
+
+<app-web-hosting-plan *ngIf="activeCategory === 'web-hosting'"></app-web-hosting-plan>
+<app-server-plans *ngIf="activeCategory === 'control-panel'"></app-server-plans>
+<app-pricing-vps *ngIf="activeCategory === 'vps'"></app-pricing-vps>
+<app-pricing-divers *ngIf="activeCategory === 'divers'"></app-pricing-divers>
+<app-security-pricing *ngIf="activeCategory === 'security'"></app-security-pricing>
+<app-backup-pricing *ngIf="activeCategory === 'backup'"></app-backup-pricing>
+<app-outsourcing-pricing *ngIf="activeCategory === 'it-outsourcing'"></app-outsourcing-pricing>

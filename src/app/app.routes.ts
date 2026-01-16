@@ -11,6 +11,10 @@ import { Security} from './pages/security/security';
 import { EmailsComponent } from './pages/emails/emails';
 import { Infogerances } from './pages/infogerances/infogerances';
 import { Vps } from './pages/vps/vps';
+import { VpsHosting } from './pages/vps-hosting/vps-hosting';
+import { Divers } from './pages/divers/divers';
+import { WebHosting } from './pages/web-hosting/web-hosting';
+import { ItOutsourcing } from './pages/it-outsourcing/it-outsourcing';
 
 export const routes: Routes = [
   { path: '', component: Home },
@@ -24,6 +28,10 @@ export const routes: Routes = [
   { path: "services/hosting/emails", component: EmailsComponent},
   { path: "services/infogerance", component: Infogerances},
   { path: "services/hosting/vps", component: Vps},
+  { path: "vps-hosting", component: VpsHosting},
+  { path: "web-hosting", component: WebHosting},
+  { path: "divers", component: Divers},
+  { path: "it-outsourcing", component: ItOutsourcing},
   { path: '**', component: NotFound },
 
 ];

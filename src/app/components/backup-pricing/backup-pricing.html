@@ -1,0 +1,64 @@
+<!-- Backup Plans -->
+<section class="py-5 bg-light">
+  <div class="container">
+    <div class="row g-4 justify-content-center">
+      <div class="col-lg-4 col-md-6 mb-4" *ngFor="let plan of plans">
+        <div class="card border-0 shadow-sm h-100 position-relative"
+             [ngClass]="{'border-2 border-warning shadow-lg': plan.best}">
+
+          <!-- Popular Badge -->
+          <div *ngIf="plan.best" class="position-absolute start-50 translate-middle-x">
+            <span class="badge bg-warning text-dark px-3 py-2 rounded-pill fw-bold">
+              Most Popular
+            </span>
+          </div>
+
+          <div class="card-body p-4 text-center">
+            <!-- Plan Name -->
+            <h3 class="card-title fw-bold text-dark mb-3">{{ plan.name }}</h3>
+
+            <!-- Price -->
+            <div class="mb-4">
+              <h2 class="text-warning fw-bold mb-1 price">{{ plan.price }}</h2>
+            </div>
+
+            <!-- Description -->
+            <p class="text-muted mb-4">{{ plan.description }}</p>
+
+            <!-- Features -->
+            <div class="text-start mb-4">
+              <ul class="list-unstyled">
+                <li class="mb-2" *ngFor="let feature of plan.features">
+                  <i class="bi bi-cloud-arrow-down-fill text-success me-2"></i>
+                  <span class="fw-medium">{{ feature }}</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- CTA Button -->
+            <button class="btn w-100 fw-bold mb-3"
+                    [ngClass]="plan.best ? 'btn-warning text-dark' : 'btn-outline-warning'"
+                    routerLink="/signin">
+              Get Started
+            </button>
+          </div>
+
+          <!-- Additional Features -->
+          <div class="card-footer bg-light border-0">
+            <div class="row text-center">
+              <div class="col-6">
+                <i class="bi bi-shield-check text-success fs-4 mb-1"></i>
+                <div class="small text-muted">Secure</div>
+              </div>
+              <div class="col-6">
+                <i class="bi bi-headset text-success fs-4 mb-1"></i>
+                <div class="small text-muted">24/7 Support</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
