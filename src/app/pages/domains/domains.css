@@ -1,0 +1,123 @@
+/* Domains Page Styles */
+
+.card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 15px;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Popular domain styling */
+.card.border-warning {
+  position: relative;
+  padding-top: 20px;
+}
+
+.position-absolute {
+  top: -15px !important;
+  z-index: 10;
+}
+
+.badge {
+  font-size: 0.8rem;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.input-group-lg .form-control {
+  font-size: 1.1rem;
+}
+
+.btn-warning {
+  background: linear-gradient(135deg, #ffc107, #fd7e14);
+  border: none;
+}
+
+.btn-warning:hover {
+  background: linear-gradient(135deg, #e0a800, #e8680f);
+  transform: translateY(-1px);
+}
+
+.btn-outline-warning:hover {
+  background-color: #ffc107 !important;
+  border-color: #ffc107 !important;
+  color: #000 !important;
+  transform: translateY(-1px);
+}
+.hero-domain-search {
+  margin-top: 4rem;
+  padding: 2rem;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px var(--shadow-color);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+[data-bs-theme="dark"] .hero-domain-search {
+  background: rgba(26, 35, 50, 0.8);
+  border-color: rgba(52, 152, 219, 0.2);
+}
+
+.domain-search-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: var(--input-bg);
+  border: 2px solid var(--input-border);
+  border-radius: 12px;
+  padding: 0.75rem 1rem;
+  transition: all 0.3s ease;
+}
+
+.domain-search-wrapper:focus-within {
+  border-color: #3498db;
+  box-shadow: 0 0 0 4px rgba(52, 152, 219, 0.1);
+}
+
+.domain-search-icon {
+  color: var(--text-muted);
+  font-size: 1.25rem;
+}
+
+.domain-search-input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  font-size: 1rem;
+  color: var(--text-color);
+  outline: none;
+  padding: 0;
+}
+
+.domain-search-input::placeholder {
+  color: var(--text-muted);
+}
+
+.domain-search-btn {
+  background: linear-gradient(135deg, #002b80 0%, #3399ff 100%);
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  border-radius: 8px;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+  color: white;
+}
+
+.domain-search-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
+}
+
+.domain-search-hint {
+  margin-top: 1rem;
+  margin-bottom: 0;
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+}

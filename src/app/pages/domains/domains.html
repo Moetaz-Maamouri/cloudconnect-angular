@@ -1,0 +1,127 @@
+<!-- Hero Section -->
+<section class="py-5 bg-light">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h1 class="fw-bold text-primary mb-4">Find Your Perfect Domain</h1>
+      <p class="text-muted fs-5 mb-4">
+        Search and register your ideal domain name with competitive pricing.
+      </p>
+    </div>
+
+    <!-- Domain Search -->
+    <div class="hero-domain-search" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
+      <div class="domain-search-wrapper">
+        <div class="domain-search-icon">
+          <i class="bi bi-globe"></i>
+        </div>
+        <input
+          type="text"
+          class="domain-search-input"
+          placeholder="Search for your perfect domain..."
+          aria-label="Search domain"
+        />
+        <button class="btn domain-search-btn">
+          Search Domain
+          <i class="bi bi-search ms-2"></i>
+        </button>
+      </div>
+      <p class="domain-search-hint">
+        <i class="bi bi-check-circle-fill text-success me-2"></i>
+        Free SSL certificate included with every domain
+      </p>
+    </div>
+
+    <!-- Search Result -->
+    <div *ngIf="searchResult" class="row justify-content-center mb-5">
+      <div class="col-lg-8">
+        <div class="alert alert-info border-0 shadow-sm">
+          <h5 class="alert-heading">
+            <i class="bi bi-info-circle me-2"></i>Searching for: {{ searchResult }}
+          </h5>
+          <p class="mb-0">Check the domain extensions below for availability and pricing.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Domain Extensions with Prices -->
+<section class="py-5">
+  <div class="container">
+    <div class="text-center mb-4">
+      <h2 class="fw-bold text-primary mb-3">Domain Extensions & Pricing</h2>
+      <p class="text-muted">Choose from our wide selection of domain extensions at competitive prices.</p>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-lg-4 col-md-6" *ngFor="let ext of extensions">
+        <div class="card border-0 shadow-sm h-100 position-relative"
+             [ngClass]="{'border-2 border-warning': ext.popular}">
+          
+          <!-- Popular Badge -->
+          <div *ngIf="ext.popular" class="position-absolute start-50 translate-middle-x">
+            <span class="badge bg-warning text-dark px-3 py-2 rounded-pill fw-bold">
+              Popular
+            </span>
+          </div>
+
+          <div class="card-body p-4 text-center">
+            <h3 class="fw-bold text-dark mb-3">
+              <span class="text-primary">{{ searchResult || 'yourdomain' }}</span>{{ ext.extension }}
+            </h3>
+            
+            <div class="mb-3">
+              <h4 class="text-warning fw-bold mb-1">{{ ext.price }}</h4>
+              <small class="text-muted">First Year</small>
+            </div>
+
+            <div class="mb-4">
+              <small class="text-muted">Renewal: {{ ext.renewalPrice }}</small>
+            </div>
+
+            <button class="btn w-100 fw-bold"
+                    [ngClass]="ext.popular ? 'btn-warning text-dark' : 'btn-outline-warning'"
+                    routerLink="/signin">
+              <i class="bi bi-cart-plus me-2"></i>Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Features Section -->
+    <div class="row mt-5">
+      <div class="col-12">
+        <div class="card border-0 shadow-sm">
+          <div class="card-body p-5">
+            <h3 class="fw-bold text-primary text-center mb-4">Why Register Your Domain With Us?</h3>
+            <div class="row g-4">
+              <div class="col-md-4 text-center">
+                <div class="mb-3">
+                  <i class="bi bi-shield-check-fill text-warning fs-1"></i>
+                </div>
+                <h5 class="fw-bold mb-2">Free SSL Certificate</h5>
+                <p class="text-muted small">Get a free SSL certificate to secure your website automatically.</p>
+              </div>
+              <div class="col-md-4 text-center">
+                <div class="mb-3">
+                  <i class="bi bi-globe text-warning fs-1"></i>
+                </div>
+                <h5 class="fw-bold mb-2">Easy Management</h5>
+                <p class="text-muted small">Manage your domains easily through our intuitive control panel.</p>
+              </div>
+              <div class="col-md-4 text-center">
+                <div class="mb-3">
+                  <i class="bi bi-headset text-warning fs-1"></i>
+                </div>
+                <h5 class="fw-bold mb-2">24/7 Support</h5>
+                <p class="text-muted small">Our expert team is available around the clock to assist you.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+

@@ -3,6 +3,13 @@ import { CommonModule } from '@angular/common';
 import { RouterLink } from "@angular/router";
 import { FormsModule } from '@angular/forms';
 
+interface WebHostingPlanType {
+  name: string;
+  price: string;
+  features: string[];
+  best?: boolean;
+}
+
 @Component({
   selector: 'app-web-hosting-plan',
   imports: [CommonModule, RouterLink, FormsModule],
@@ -11,6 +18,39 @@ import { FormsModule } from '@angular/forms';
   standalone: true
 })
 export class WebHostingPlan {
+  plans: WebHostingPlanType[] = [
+    {
+      name: 'Basic',
+      price: '$5/mo',
+      features: [
+        '1 Website',
+        '10 GB Storage',
+        'Free SSL Certificate',
+        'Email Support'
+      ]
+    },
+    {
+      name: 'Standard',
+      price: '$10/mo',
+      features: [
+        '5 Websites',
+        '50 GB Storage',
+        'Free SSL + Email Support',
+        '24/7 Customer Service'
+      ],
+      best: true
+    },
+    {
+      name: 'Premium',
+      price: '$20/mo',
+      features: [
+        'Unlimited Websites',
+        '200 GB Storage',
+        'Free SSL + Email Support',
+        'Priority Support'
+      ]
+    }
+  ];
   custom = {
     os: "linux",
     ram: 4,
@@ -52,6 +92,22 @@ export class WebHostingPlan {
     });
 
     return price.toFixed(2);
+  }
+
+  get configurationSummary() {
+    const parts: string[] = [];
+    
+    parts.push(`${this.custom.os.charAt(0).toUpperCase() + this.custom.os.slice(1)} OS`);
+    parts.push(`${this.custom.ram} GB RAM`);
+    parts.push(`${this.custom.storage} GB Storage`);
+    parts.push(`${this.custom.cpu} CPU Core${this.custom.cpu > 1 ? 's' : ''}`);
+    
+    if (this.selectedServices.length > 0) {
+      const servicesList = this.selectedServices.map(s => s.label).join(', ');
+      parts.push(`+ ${servicesList}`);
+    }
+    
+    return parts.join(' • ');
   }
 }
 

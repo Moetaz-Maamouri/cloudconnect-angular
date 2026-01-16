@@ -28,25 +28,18 @@
         <li class="nav-item">
           <a class="nav-link" routerLink="/pricing" routerLinkActive="active">Pricing</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/domains" routerLinkActive="active">Domains</a>
+        </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button"
              data-bs-toggle="dropdown" aria-expanded="false">
             Services
           </a>
           <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
-            <li class="dropdown-submenu">
-      <a class="nav-link dropdown-item d-flex justify-content-between align-items-center"
-         routerLink="/hosting"
-         role="button">
-        <span>Hosting</span>
-        <i class="bi bi-chevron-right"></i>
-      </a>
-      <!-- VPS and Emails submenu -->
-      <ul class="dropdown-menu submenu">
-        <li><a class="nav-link dropdown-item" routerLink="/services/hosting/vps">VPS Hosting</a></li>
-        <li><a class="nav-link dropdown-item" routerLink="/services/hosting/emails">Liens Emails</a></li>
-      </ul>
-    </li>
+            <li><a class="nav-link dropdown-item" routerLink="/web-hosting">Web Hosting</a></li>
+            <li><a class="nav-link dropdown-item" routerLink="/services/hosting/emails">Liens Emails</a></li>
+            <li><a class="nav-link dropdown-item" routerLink="/services/hosting/vps">VPS Hosting</a></li>
             <li><a class="nav-link dropdown-item" routerLink="/services/control">Control panel</a></li>
             <li><a class="nav-link dropdown-item" routerLink="/services/backup">Backup</a></li>
             <li><a class="nav-link dropdown-item" routerLink="/services/security">Security</a></li>

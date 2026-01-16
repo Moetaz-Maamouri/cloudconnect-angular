@@ -1,153 +1,156 @@
-<section class="py-5 bg-light text-center">
+<!-- Web Hosting Plans -->
+<section class="py-5 bg-light">
   <div class="container">
-    <h2 class="fw-bold text-primary mb-4">Choose Your Plan</h2>
-    <p class="text-muted mb-5">
-      Select a hosting plan that fits your business needs.
-    </p>
+    <div class="row g-4 justify-content-center">
+      <div class="col-lg-4 col-md-6 mb-4" *ngFor="let plan of plans">
+        <div class="card border-0 shadow-sm h-100 position-relative"
+             [ngClass]="{'border-2 border-warning shadow-lg': plan.best}">
 
-    <div class="row justify-content-center">
-      <!-- 🟦 Basic Plan -->
-      <div class="col-md-4 mb-4">
-        <div class="card border-0 shadow-sm h-100">
-          <div class="card-body p-5">
-            <h5 class="card-title fw-bold text-dark mb-3">Basic</h5>
-            <h2 class="text-warning fw-bold">$5<span class="fs-6 text-muted">/mo</span></h2>
-            <ul class="list-unstyled mt-3 mb-4 text-start">
-              <li>✔ 1 Website</li>
-              <li>✔ 10 GB Storage</li>
-              <li>✔ Free SSL Certificate</li>
-              <li>✖ Email Support</li>
-            </ul>
-            <button class="btn btn-outline-warning w-100 fw-bold" routerLink="/signin">Get Started</button>
+          <!-- Popular Badge -->
+          <div *ngIf="plan.best" class="position-absolute start-50 translate-middle-x">
+            <span class="badge bg-warning text-dark px-3 py-2 rounded-pill fw-bold">
+              Most Popular
+            </span>
           </div>
-        </div>
-      </div>
 
-      <!-- 🟨 Standard Plan -->
-      <div class="col-md-4 mb-4">
-        <div class="card border-2 border-warning shadow h-100">
-          <div class="card-body p-5">
-            <h5 class="card-title fw-bold text-dark mb-3">Standard</h5>
-            <h2 class="text-warning fw-bold">$10<span class="fs-6 text-muted">/mo</span></h2>
-            <ul class="list-unstyled mt-3 mb-4 text-start">
-              <li>✔ 5 Websites</li>
-              <li>✔ 50 GB Storage</li>
-              <li>✔ Free SSL + Email Support</li>
-              <li>✔ 24/7 Customer Service</li>
-            </ul>
-            <button class="btn btn-warning text-white w-100 fw-bold" routerLink="/signin">Choose Plan</button>
-          </div>
-        </div>
-      </div>
+          <div class="card-body p-4 text-center">
+            <!-- Plan Name -->
+            <h3 class="card-title fw-bold text-dark mb-3">{{ plan.name }}</h3>
 
-      <!-- 🟩 Premium Plan -->
-      <div class="col-md-4 mb-4">
-        <div class="card border-0 shadow-sm h-100">
-          <div class="card-body p-5">
-            <h5 class="card-title fw-bold text-dark mb-3">Premium</h5>
-            <h2 class="text-warning fw-bold">$20<span class="fs-6 text-muted">/mo</span></h2>
-            <ul class="list-unstyled mt-3 mb-4 text-start">
-              <li>✔ Unlimited Websites</li>
-              <li>✔ 200 GB Storage</li>
-              <li>✔ Free SSL + Email Support</li>
-              <li>✔ Priority Support</li>
-            </ul>
-            <button class="btn btn-outline-warning w-100 fw-bold" routerLink="/signin">Get Started</button>
-          </div>
-        </div>
-      </div>
+            <!-- Price -->
+            <div class="mb-4">
+              <h2 class="text-warning fw-bold mb-1 price">{{ plan.price }}</h2>
+              <small class="text-muted">per month</small>
+            </div>
 
-      <div class="container py-5">
-        <div class="mx-auto" style="max-width: 720px;">
-
-          <h2 class="fw-bold text-primary text-center mb-2">Build Your Custom Plan</h2>
-          <p class="text-muted text-center mb-4">
-            Configure a hosting plan that matches your exact needs.
-          </p>
-
-          <div class="card shadow-lg border-0 p-4 rounded-4">
-            <form>
-
-              <!-- OS Selection -->
-              <div class="mb-4">
-                <label class="card-title fw-bold text-dark mb-3">Operating System</label>
-                <select class="form-select form-select-lg rounded-3"
-                        [(ngModel)]="custom.os" name="os">
-                  <option value="linux">Linux</option>
-                  <option value="windows">Windows</option>
-                </select>
+            <!-- Features -->
+            <div class="text-start mb-4">
+              <div class="d-flex align-items-center mb-3" *ngFor="let feature of plan.features">
+                <i class="bi bi-check-circle-fill text-success me-3 fs-5 icon"></i>
+                <span class="fw-medium">{{ feature }}</span>
               </div>
+            </div>
 
-              <!-- RAM -->
-              <div class="mb-4">
-                <label class="card-title fw-bold text-dark mb-3">Memory (RAM)</label>
-                <select class="form-select form-select-lg rounded-3"
-                        [(ngModel)]="custom.ram" name="ram">
-                  <option *ngFor="let r of ramOptions" [value]="r">
-                    {{ r }} GB
-                  </option>
-                </select>
+            <!-- CTA Button -->
+            <button class="btn w-100 fw-bold mb-3"
+                    [ngClass]="plan.best ? 'btn-warning text-dark' : 'btn-outline-warning'"
+                    routerLink="/signin">
+              Get Started
+            </button>
+          </div>
+
+          <!-- Additional Features -->
+          <div class="card-footer bg-light border-0">
+            <div class="row text-center">
+              <div class="col-6">
+                <i class="bi bi-shield-check text-success fs-4 mb-1"></i>
+                <div class="small text-muted">DDoS Protection</div>
               </div>
+              <div class="col-6">
+                <i class="bi bi-speedometer2 text-success fs-4 mb-1"></i>
+                <div class="small text-muted">99.9% Uptime</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-              <!-- Storage -->
-              <div class="mb-4">
-                <label class="card-title fw-bold text-dark mb-3">Storage</label>
-                <input type="range" class="form-range" min="20" max="500" step="10"
-                       [(ngModel)]="custom.storage" name="storage">
-                <div class="text-primary fw-bold text-center mt-1">
-                  {{ custom.storage }} GB
+    <!-- Custom Plan Section -->
+    <div class="container py-5">
+      <div class="mx-auto" style="max-width: 720px;">
+
+        <h2 class="fw-bold text-primary text-center mb-2">Build Your Custom Plan</h2>
+        <p class="text-muted text-center mb-4">
+          Configure a hosting plan that matches your exact needs.
+        </p>
+
+        <div class="card shadow-lg border-0 p-4 rounded-4">
+          <form>
+
+            <!-- OS Selection -->
+            <div class="mb-4">
+              <label class="card-title fw-bold text-dark mb-3">Operating System</label>
+              <select class="form-select form-select-lg rounded-3"
+                      [(ngModel)]="custom.os" name="os">
+                <option value="linux">Linux</option>
+                <option value="windows">Windows</option>
+              </select>
+            </div>
+
+            <!-- RAM -->
+            <div class="mb-4">
+              <label class="card-title fw-bold text-dark mb-3">Memory (RAM)</label>
+              <select class="form-select form-select-lg rounded-3"
+                      [(ngModel)]="custom.ram" name="ram">
+                <option *ngFor="let r of ramOptions" [value]="r">
+                  {{ r }} GB
+                </option>
+              </select>
+            </div>
+
+            <!-- Storage -->
+            <div class="mb-4">
+              <label class="card-title fw-bold text-dark mb-3">Storage</label>
+              <input type="range" class="form-range" min="20" max="500" step="10"
+                     [(ngModel)]="custom.storage" name="storage">
+              <div class="text-primary fw-bold text-center mt-1">
+                {{ custom.storage }} GB
+              </div>
+            </div>
+
+            <!-- CPU -->
+            <div class="mb-4">
+              <label class="card-title fw-bold text-dark mb-3">CPU Cores</label>
+              <select class="form-select form-select-lg rounded-3"
+                      [(ngModel)]="custom.cpu" name="cpu">
+                <option *ngFor="let c of cpuOptions" [value]="c">
+                  {{ c }} Core(s)
+                </option>
+              </select>
+            </div>
+
+            <!-- Extra Services -->
+            <div class="mb-4">
+              <label class="card-title fw-bold text-dark mb-3">Additional Services</label>
+
+              <div class="d-flex flex-column gap-2">
+                <div class="form-check p-2 border rounded-3 shadow-sm"
+                     *ngFor="let s of services">
+                  <input class="form-check-input m-1" type="checkbox"
+                         [(ngModel)]="s.selected" [name]="s.name" [id]="s.name">
+                  <label class="form-check-label ms-2" [for]="s.name">
+                    {{ s.label }} <span class="text-warning fw-bold">(+${{ s.price }})</span>
+                  </label>
                 </div>
               </div>
+            </div>
 
-              <!-- CPU -->
-              <div class="mb-4">
-                <label class="card-title fw-bold text-dark mb-3">CPU Cores</label>
-                <select class="form-select form-select-lg rounded-3"
-                        [(ngModel)]="custom.cpu" name="cpu">
-                  <option *ngFor="let c of cpuOptions" [value]="c">
-                    {{ c }} Core(s)
-                  </option>
-                </select>
-              </div>
+            <!-- Total Price -->
+            <div class="text-center bg-light py-3 rounded-3 border shadow-sm mt-4">
+              <h4 class="fw-bold mb-0">
+                Total Price:
+                <span class="text-primary">${{ totalPrice }}/mo</span>
+              </h4>
+            </div>
 
-              <!-- Extra Services -->
-              <div class="mb-4">
-                <label class="card-title fw-bold text-dark mb-3">Additional Services</label>
+            <!-- Configuration Summary -->
+            <div class="text-center mt-3 mb-2">
+              <small class="text-muted">
+                {{ configurationSummary }}
+              </small>
+            </div>
 
-                <div class="d-flex flex-column gap-2">
-                  <div class="form-check p-2 border rounded-3 shadow-sm"
-                       *ngFor="let s of services">
-                    <input class="form-check-input m-1" type="checkbox"
-                           [(ngModel)]="s.selected" [name]="s.name" [id]="s.name">
-                    <label class="form-check-label ms-2" [for]="s.name">
-                      {{ s.label }} <span class="text-warning fw-bold">(+${{ s.price }})</span>
-                    </label>
-                  </div>
-                </div>
-              </div>
+            <button
+              class="btn btn-primary w-100 mt-4 fw-bold py-2 rounded-3"
+              routerLink="/signin">
+              Build My Server
+            </button>
 
-              <!-- Total Price -->
-              <div class="text-center bg-light py-3 rounded-3 border shadow-sm mt-4">
-                <h4 class="fw-bold mb-0">
-                  Total Price:
-                  <span class="text-primary">${{ totalPrice }}/mo</span>
-                </h4>
-              </div>
-
-              <button
-                class="btn btn-primary w-100 mt-4 fw-bold py-2 rounded-3"
-                routerLink="/signin">
-                Build My Server
-              </button>
-
-            </form>
-          </div>
-
+          </form>
         </div>
-      </div>
 
+      </div>
     </div>
   </div>
-
 </section>
-

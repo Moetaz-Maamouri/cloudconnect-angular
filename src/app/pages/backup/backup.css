@@ -52,6 +52,11 @@
   transform: scale(1.1);
 }
 
+.position-absolute {
+  top: -15px !important;
+  z-index: 10;
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .backup-hero {

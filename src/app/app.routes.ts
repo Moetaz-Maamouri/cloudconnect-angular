@@ -15,10 +15,12 @@ import { VpsHosting } from './pages/vps-hosting/vps-hosting';
 import { Divers } from './pages/divers/divers';
 import { WebHosting } from './pages/web-hosting/web-hosting';
 import { ItOutsourcing } from './pages/it-outsourcing/it-outsourcing';
+import { Domains } from './pages/domains/domains';
 
 export const routes: Routes = [
   { path: '', component: Home },
   { path: 'pricing', component: Pricing },
+  { path: 'domains', component: Domains },
   { path: 'faq', component: Faq },
   { path: 'contact', component: Contact },
   { path: 'signin', component: Signin },
