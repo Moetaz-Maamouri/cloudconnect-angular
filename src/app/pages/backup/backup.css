@@ -1,7 +1,68 @@
-.display-4{
-  background: linear-gradient(135deg, #007bff 0%, #8a2be2 50%, #ff7f00 100%);
+/* Backup Page Styles */
+.backup-hero {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 0 0 50px 50px;
+}
+
+.backup-hero h1 {
+  background: linear-gradient(45deg, #ffffff, #f8f9fa);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  display: inline-block;
+}
+
+.backup-card {
+  transition: all 0.3s ease;
+  border: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.backup-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.recovery-badge {
+  background: linear-gradient(45deg, #dc3545, #ff6b6b);
+}
+
+/* Card hover effects */
+.card {
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Button hover effects */
+.btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Icon animations */
+.bi {
+  transition: all 0.3s ease;
+}
+
+.card:hover .bi {
+  transform: scale(1.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .backup-hero {
+    border-radius: 0 0 30px 30px;
+  }
+
+  .display-4 {
+    font-size: 2.5rem;
+  }
+
+  .card {
+    margin-bottom: 1rem;
+  }
 }

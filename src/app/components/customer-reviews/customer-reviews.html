@@ -4,10 +4,10 @@
       <div class="particle"></div>
     }
   </div>
-  
+
   <div class="container py-5">
     <div class="text-center mb-5">
-      <h2 class="section-title">What Our Customers Say</h2>
+      <h2 class="section-title text-primary">What Our Customers Say</h2>
       <p class="section-subtitle">Trusted by thousands of businesses worldwide</p>
     </div>
 
@@ -16,8 +16,8 @@
         <div class="col-12 col-md-6 col-lg-4">
           <div class="review-card">
             <div class="review-header">
-              <img 
-                [src]="review.avatar" 
+              <img
+                [src]="review.avatar"
                 [alt]="review.name"
                 class="review-avatar"
                 loading="lazy"
@@ -27,13 +27,13 @@
                 <p class="review-role">{{ review.role }} · {{ review.company }}</p>
               </div>
             </div>
-            
+
             <div class="review-rating">
               @for (star of getStars(review.rating); track $index) {
                 <span class="star">★</span>
               }
             </div>
-            
+
             <p class="review-text">{{ review.text }}</p>
           </div>
         </div>

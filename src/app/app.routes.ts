@@ -8,6 +8,9 @@ import { Signin } from './pages/signin/signin';
 import { Services} from './pages/services/services';
 import { Backup} from './pages/backup/backup';
 import { Security} from './pages/security/security';
+import { EmailsComponent } from './pages/emails/emails';
+import { Infogerances } from './pages/infogerances/infogerances';
+import { Vps } from './pages/vps/vps';
 
 export const routes: Routes = [
   { path: '', component: Home },
@@ -18,6 +21,9 @@ export const routes: Routes = [
   { path: "services/control", component: Services},
   { path: "services/backup", component: Backup},
   { path: "services/security", component: Security},
+  { path: "services/hosting/emails", component: EmailsComponent},
+  { path: "services/infogerance", component: Infogerances},
+  { path: "services/hosting/vps", component: Vps},
   { path: '**', component: NotFound },
 
 ];

@@ -1,55 +1,194 @@
-<div class="faq-container">
-    <h1 class="faq-title">Questions fréquemment posées</h1>
-
-    <div class="faq-section">
-        <div class="faq-item">
-            <h3>Qu'est-ce que l'hébergement web partagé ?</h3>
-            <p>L'hébergement web partagé est une solution où plusieurs sites web sont hébergés sur un même serveur physique. C'est l'option la plus économique et la plus populaire pour les petits sites web et les blogs.</p>
-        </div>
-
-        <div class="faq-item">
-            <h3>Quelle est la différence entre l'hébergement partagé et l'hébergement VPS ?</h3>
-            <p>L'hébergement partagé utilise un serveur partagé avec d'autres utilisateurs, tandis qu'un VPS (Serveur Privé Virtuel) vous offre des ressources dédiées et un meilleur contrôle sur votre environnement d'hébergement.</p>
-        </div>
-
-        <div class="faq-item">
-            <h3>Comment puis-je migrer mon site web vers votre service ?</h3>
-            <p>Nous offrons un service de migration gratuit pour tous les nouveaux clients. Notre équipe technique se charge de transférer votre site web sans temps d'arrêt et sans perte de données.</p>
-        </div>
-
-        <div class="faq-item">
-            <h3>Offrez-vous une garantie de temps de fonctionnement ?</h3>
-            <p>Oui, nous garantissons un temps de fonctionnement de 99.9%. En cas de non-respect de cet engagement, vous serez compensé conformément à notre politique de niveau de service (SLA).</p>
-        </div>
-
-        <div class="faq-item">
-            <h3>Combien de sites puis-je héberger avec un compte ?</h3>
-            <p>Le nombre de sites dépend du forfait choisi. Nos forfaits débutent avec 1 site web et peuvent aller jusqu'à un nombre illimité de sites selon le plan sélectionné.</p>
-        </div>
-
-        <div class="faq-item">
-            <h3>Proposez-vous des sauvegardes automatiques ?</h3>
-            <p>Oui, nous effectuons des sauvegardes automatiques quotidiennes de tous les sites web et les conservons pendant 30 jours. Vous pouvez restaurer votre site à partir de n'importe quelle sauvegarde en un clic.</p>
-        </div>
-
-        <div class="faq-item">
-            <h3>Qu'est-ce que le SSL gratuit ?</h3>
-            <p>Un certificat SSL (Secure Socket Layer) crypte les données entre le serveur web et le navigateur. Nous fournissons des certificats SSL Let's Encrypt gratuits pour tous les domaines hébergés sur nos serveurs.</p>
-        </div>
-
-        <div class="faq-item">
-            <h3>Comment fonctionne votre support client ?</h3>
-            <p>Notre équipe de support est disponible 24/7/365 via chat en direct, email et ticket. Le temps de réponse moyen est de moins de 15 minutes pour toutes les demandes.</p>
-        </div>
-
-        <div class="faq-item">
-            <h3>Puis-je mettre à niveau mon forfait plus tard ?</h3>
-            <p>Oui, vous pouvez facilement mettre à niveau votre forfait à tout moment depuis votre panneau de contrôle. La mise à niveau est instantanée et sans temps d'arrêt.</p>
-        </div>
-
-        <div class="faq-item">
-            <h3>Offrez-vous une garantie de remboursement ?</h3>
-            <p>Oui, nous offrons une garantie de remboursement de 30 jours. Si vous n'êtes pas satisfait de nos services, vous pouvez demander un remboursement complet dans les 30 jours suivant votre achat.</p>
-        </div>
+<section class="py-5 bg-light">
+  <div class="container">
+    <!-- Header -->
+    <div class="text-center mb-5">
+      <h1 class="fw-bold text-primary mb-4">Frequently Asked Questions</h1>
+      <p class="text-muted fs-5 mb-4">
+        Find answers to common questions about our hosting services.
+      </p>
+      <p class="text-muted">
+        Can't find what you're looking for? <a href="/contact" class="text-warning fw-bold text-decoration-none">Contact our support team</a>
+      </p>
     </div>
-</div>
+
+    <!-- FAQ Categories -->
+    <div class="row justify-content-center mb-5">
+      <div class="col-md-8">
+        <div class="d-flex flex-wrap justify-content-center gap-2 mb-4">
+          <button class="btn" [class.btn-warning]="activeCategory === 'all'" [class.btn-outline-warning]="activeCategory !== 'all'" (click)="setCategory('all')">All Questions</button>
+          <button class="btn" [class.btn-warning]="activeCategory === 'hosting'" [class.btn-outline-warning]="activeCategory !== 'hosting'" (click)="setCategory('hosting')">Hosting</button>
+          <button class="btn" [class.btn-warning]="activeCategory === 'technical'" [class.btn-outline-warning]="activeCategory !== 'technical'" (click)="setCategory('technical')">Technical</button>
+          <button class="btn" [class.btn-warning]="activeCategory === 'billing'" [class.btn-outline-warning]="activeCategory !== 'billing'" (click)="setCategory('billing')">Billing</button>
+          <button class="btn" [class.btn-warning]="activeCategory === 'support'" [class.btn-outline-warning]="activeCategory !== 'support'" (click)="setCategory('support')">Support</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- FAQ Accordion -->
+    <div class="row justify-content-center">
+      <div class="col-lg-10">
+        <div class="accordion" id="faqAccordion">
+
+          <!-- Hosting Basics -->
+          <div class="accordion-item border-0 shadow-sm mb-3" *ngIf="activeCategory === 'all' || activeCategory === 'hosting'">
+            <h2 class="accordion-header">
+              <button class="accordion-button fw-bold text-dark bg-white border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#hosting1" aria-expanded="true">
+                <i class="bi bi-server me-3 text-warning"></i>
+                What is shared web hosting?
+              </button>
+            </h2>
+            <div id="hosting1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+              <div class="accordion-body text-muted">
+                Shared web hosting is a solution where multiple websites are hosted on the same physical server. It's the most economical and popular option for small websites and blogs. Resources like CPU, RAM, and disk space are shared among all users on the server.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item border-0 shadow-sm mb-3" *ngIf="activeCategory === 'all' || activeCategory === 'hosting'">
+            <h2 class="accordion-header">
+              <button class="accordion-button fw-bold text-dark bg-white border-0 shadow-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#hosting2">
+                <i class="bi bi-diagram-3 me-3 text-warning"></i>
+                What's the difference between shared hosting and VPS?
+              </button>
+            </h2>
+            <div id="hosting2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body text-muted">
+                Shared hosting uses a server shared with other users, making it more affordable but with limited resources. A VPS (Virtual Private Server) provides dedicated resources and better control over your hosting environment, offering more power and customization options.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item border-0 shadow-sm mb-3" *ngIf="activeCategory === 'all' || activeCategory === 'hosting'">
+            <h2 class="accordion-header">
+              <button class="accordion-button fw-bold text-dark bg-white border-0 shadow-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#hosting3">
+                <i class="bi bi-hdd me-3 text-warning"></i>
+                How many websites can I host with one account?
+              </button>
+            </h2>
+            <div id="hosting3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body text-muted">
+                The number of websites depends on your chosen plan. Our plans start with 1 website and can go up to unlimited websites depending on the selected package. Higher-tier plans offer more resources and website allowances.
+              </div>
+            </div>
+          </div>
+
+          <!-- Technical Questions -->
+          <div class="accordion-item border-0 shadow-sm mb-3" *ngIf="activeCategory === 'all' || activeCategory === 'technical'">
+            <h2 class="accordion-header">
+              <button class="accordion-button fw-bold text-dark bg-white border-0 shadow-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#technical1">
+                <i class="bi bi-arrow-repeat me-3 text-warning"></i>
+                How can I migrate my website to your service?
+              </button>
+            </h2>
+            <div id="technical1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body text-muted">
+                We offer free migration service for all new customers. Our technical team handles the entire transfer process, ensuring zero downtime and no data loss. Simply provide us with your current hosting details, and we'll take care of everything.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item border-0 shadow-sm mb-3" *ngIf="activeCategory === 'all' || activeCategory === 'technical'">
+            <h2 class="accordion-header">
+              <button class="accordion-button fw-bold text-dark bg-white border-0 shadow-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#technical2">
+                <i class="bi bi-shield-check me-3 text-warning"></i>
+                What is free SSL and why do I need it?
+              </button>
+            </h2>
+            <div id="technical2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body text-muted">
+                SSL (Secure Socket Layer) encrypts data between your web server and visitors' browsers. We provide free Let's Encrypt SSL certificates for all domains hosted on our servers. SSL is essential for security, SEO rankings, and building trust with your visitors.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item border-0 shadow-sm mb-3" *ngIf="activeCategory === 'all' || activeCategory === 'technical'">
+            <h2 class="accordion-header">
+              <button class="accordion-button fw-bold text-dark bg-white border-0 shadow-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#technical3">
+                <i class="bi bi-backup me-3 text-warning"></i>
+                Do you offer automatic backups?
+              </button>
+            </h2>
+            <div id="technical3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body text-muted">
+                Yes, we perform automatic daily backups of all websites and keep them for 30 days. You can restore your website from any backup with one click through your control panel. Additional backup options are available for higher-tier plans.
+              </div>
+            </div>
+          </div>
+
+          <!-- Billing Questions -->
+          <div class="accordion-item border-0 shadow-sm mb-3" *ngIf="activeCategory === 'all' || activeCategory === 'billing'">
+            <h2 class="accordion-header">
+              <button class="accordion-button fw-bold text-dark bg-white border-0 shadow-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#billing1">
+                <i class="bi bi-credit-card me-3 text-warning"></i>
+                Do you offer a money-back guarantee?
+              </button>
+            </h2>
+            <div id="billing1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body text-muted">
+                Yes, we offer a 30-day money-back guarantee. If you're not satisfied with our services, you can request a full refund within 30 days of your purchase. No questions asked, no hidden fees.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item border-0 shadow-sm mb-3" *ngIf="activeCategory === 'all' || activeCategory === 'billing'">
+            <h2 class="accordion-header">
+              <button class="accordion-button fw-bold text-dark bg-white border-0 shadow-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#billing2">
+                <i class="bi bi-graph-up me-3 text-warning"></i>
+                Can I upgrade my plan later?
+              </button>
+            </h2>
+            <div id="billing2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body text-muted">
+                Absolutely! You can easily upgrade your plan at any time from your control panel. Upgrades are instant and downtime-free. We'll prorate the charges and apply them to your next billing cycle.
+              </div>
+            </div>
+          </div>
+
+          <!-- Support Questions -->
+          <div class="accordion-item border-0 shadow-sm mb-3" *ngIf="activeCategory === 'all' || activeCategory === 'support'">
+            <h2 class="accordion-header">
+              <button class="accordion-button fw-bold text-dark bg-white border-0 shadow-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#support1">
+                <i class="bi bi-headset me-3 text-warning"></i>
+                How does your customer support work?
+              </button>
+            </h2>
+            <div id="support1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body text-muted">
+                Our support team is available 24/7/365 via live chat, email, and support tickets. The average response time is less than 15 minutes for all inquiries. We also provide comprehensive documentation and video tutorials.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item border-0 shadow-sm mb-3" *ngIf="activeCategory === 'all' || activeCategory === 'support'">
+            <h2 class="accordion-header">
+              <button class="accordion-button fw-bold text-dark bg-white border-0 shadow-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#support2">
+                <i class="bi bi-speedometer2 me-3 text-warning"></i>
+                Do you offer uptime guarantee?
+              </button>
+            </h2>
+            <div id="support2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body text-muted">
+                Yes, we guarantee 99.9% uptime. If we fail to meet this commitment, you'll be compensated according to our Service Level Agreement (SLA). We monitor our servers 24/7 to ensure optimal performance.
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact CTA -->
+    <div class="row justify-content-center mt-5">
+      <div class="col-md-6">
+        <div class="card border-0 shadow-sm text-center">
+          <div class="card-body p-4">
+            <i class="bi bi-chat-dots-fill text-warning fs-1 mb-3"></i>
+            <h4 class="fw-bold text-primary mb-3">Still have questions?</h4>
+            <p class="text-muted mb-4">Our support team is ready to help you with any questions.</p>
+            <a href="/contact" class="btn btn-warning fw-bold">Contact Support</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

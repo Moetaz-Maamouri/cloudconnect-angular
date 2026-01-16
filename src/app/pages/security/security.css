@@ -1,11 +1,124 @@
-h1{
-  background: linear-gradient(135deg, #007bff 0%, #8a2be2 50%, #ff7f00 100%);
+/* Security Page Styles */
+.security-hero {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 0 0 50px 50px;
+}
+
+.security-hero h1 {
+  background: linear-gradient(45deg, #ffffff, #f8f9fa);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  display: inline-block;
 }
-.btn-lg{
-  background: linear-gradient(135deg, #ff7f00 0%, #ffb84d 100%);
-  color : black;
+
+.security-card {
+  transition: all 0.3s ease;
+  border: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.security-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* SSL Badge Styles */
+.ssl-badge {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 14px;
+  margin: 0 auto;
+}
+
+.ssl-dv {
+  background: linear-gradient(45deg, #28a745, #20c997);
+  color: white;
+}
+
+.ssl-ov {
+  background: linear-gradient(45deg, #007bff, #6610f2);
+  color: white;
+}
+
+.ssl-ev {
+  background: linear-gradient(45deg, #fd7e14, #e83e8c);
+  color: white;
+}
+
+/* Protection Level Bars */
+.protection-level {
+  height: 8px;
+  background-color: #e9ecef;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+.protection-fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+/* Card hover effects */
+.card {
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Button hover effects */
+.btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Icon animations */
+.bi {
+  transition: all 0.3s ease;
+}
+
+.card:hover .bi {
+  transform: scale(1.1);
+}
+
+/* Accordion styling */
+.accordion-button:focus {
+  box-shadow: none;
+  border-color: rgba(255, 193, 7, 0.5);
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: rgba(255, 193, 7, 0.1);
+  color: #000;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .security-hero {
+    border-radius: 0 0 30px 30px;
+  }
+
+  .display-4 {
+    font-size: 2.5rem;
+  }
+
+  .card {
+    margin-bottom: 1rem;
+  }
+
+  .ssl-badge {
+    width: 40px;
+    height: 40px;
+    font-size: 12px;
+  }
 }

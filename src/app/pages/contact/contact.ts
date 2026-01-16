@@ -13,7 +13,8 @@ interface ContactForm {
   selector: 'app-contact',
   imports: [CommonModule, FormsModule],
   templateUrl: './contact.html',
-  styleUrl: './contact.css'
+  styleUrl: './contact.css',
+  standalone: true
 })
 export class Contact {
   contactData: ContactForm = {
@@ -24,9 +25,10 @@ export class Contact {
   };
 
   onSubmit() {
-    // Ici vous pouvez ajouter la logique pour envoyer le formulaire
-    console.log('Formulaire soumis:', this.contactData);
-    // Réinitialiser le formulaire après l'envoi
+    // Handle form submission
+    console.log('Contact form submitted:', this.contactData);
+
+    // Reset form after successful submission
     this.contactData = {
       name: '',
       email: '',

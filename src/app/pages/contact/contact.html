@@ -1,107 +1,208 @@
-<div class="contact-container">
-    <div class="contact-info">
-        <h2>Contact Us</h2>
-        <p class="contact-desc">Our team is here to assist you 24/7. Choose the method that suits you best to get in touch with us.</p>
+<section class="py-5 bg-light">
+  <div class="container">
+    <!-- Header -->
+    <div class="text-center mb-5">
+      <h1 class="fw-bold text-primary mb-4">Contact Us</h1>
+      <p class="text-muted fs-5 mb-4">
+        Get in touch with our expert team. We're here to help you succeed.
+      </p>
+      <p class="text-muted">
+        Our team is available 24/7 to assist you with any questions or support needs.
+        Choose the method that works best for you.
+      </p>
+    </div>
 
-        <div class="info-items">
-            <div class="info-item">
-                <i class="fas fa-phone-alt"></i>
-                <div class="info-content">
-                    <h3>Phone</h3>
-                    <p>+33 1 23 45 67 89</p>
-                    <p>24/7 support available</p>
-                </div>
+    <div class="row g-5">
+      <!-- Contact Information -->
+      <div class="col-lg-5">
+        <div class="card border-0 shadow-sm h-100">
+          <div class="card-body p-4">
+            <h3 class="fw-bold text-primary mb-4">Get in Touch</h3>
+
+            <!-- Phone -->
+            <div class="d-flex align-items-start mb-4">
+              <div class="bg-warning rounded-circle p-3 me-3">
+                <i class="bi bi-telephone-fill text-white fs-4"></i>
+              </div>
+              <div>
+                <h5 class="fw-bold mb-2">Phone Support</h5>
+                <p class="text-muted mb-1">+33 1 23 45 67 89</p>
+                <p class="text-muted small mb-0">24/7 support available</p>
+              </div>
             </div>
 
-            <div class="info-item">
-                <i class="fas fa-envelope"></i>
-                <div class="info-content">
-                    <h3>Email</h3>
-                    <p>support@cloudconnect.com</p>
-                    <p>sales@cloudconnect.com</p>
-                </div>
+            <!-- Email -->
+            <div class="d-flex align-items-start mb-4">
+              <div class="bg-warning rounded-circle p-3 me-3">
+                <i class="bi bi-envelope-fill text-white fs-4"></i>
+              </div>
+              <div>
+                <h5 class="fw-bold mb-2">Email Support</h5>
+                <p class="text-muted mb-1">support@cloudconnect.com</p>
+                <p class="text-muted small mb-0">sales@cloudconnect.com</p>
+              </div>
             </div>
 
-            <div class="info-item">
-                <i class="fas fa-map-marker-alt"></i>
-                <div class="info-content">
-                    <h3>Address</h3>
-                    <p>123 Web Avenue</p>
-                    <p>75001 Paris, France</p>
-                </div>
+            <!-- Address -->
+            <div class="d-flex align-items-start mb-4">
+              <div class="bg-warning rounded-circle p-3 me-3">
+                <i class="bi bi-geo-alt-fill text-white fs-4"></i>
+              </div>
+              <div>
+                <h5 class="fw-bold mb-2">Office Address</h5>
+                <p class="text-muted mb-1">123 Web Avenue</p>
+                <p class="text-muted small mb-0">75001 Paris, France</p>
+              </div>
             </div>
+
+            <!-- Response Time -->
+            <div class="mt-4 p-3 bg-light rounded-3">
+              <div class="d-flex align-items-center">
+                <i class="bi bi-clock-fill text-warning me-2"></i>
+                <div>
+                  <strong class="text-dark">Response Time</strong>
+                  <p class="text-muted small mb-0">We typically respond within 2 hours</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-    </div>
+      </div>
 
-    <div class="contact-form">
-        <h2>Send Us a Message</h2>
-        <form #contactForm="ngForm">
-            <div class="form-group">
-                <label for="name">Full Name</label>
+      <!-- Contact Form -->
+      <div class="col-lg-7">
+        <div class="card border-0 shadow-sm h-100">
+          <div class="card-body p-4">
+            <h3 class="fw-bold text-primary mb-4">Send Us a Message</h3>
+
+            <form #contactForm="ngForm" (ngSubmit)="onSubmit()" novalidate>
+              <!-- Name -->
+              <div class="mb-3">
+                <label for="name" class="form-label fw-bold">Full Name *</label>
                 <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    required
-                    placeholder="Your full name">
-                <div class="error-message">
-                    Name is required
+                  type="text"
+                  id="name"
+                  name="name"
+                  class="form-control form-control-lg"
+                  [(ngModel)]="contactData.name"
+                  required
+                  #name="ngModel"
+                  placeholder="Your full name">
+                <div class="text-danger small mt-1" *ngIf="name.invalid && (name.dirty || name.touched)">
+                  Name is required
                 </div>
-            </div>
+              </div>
 
-            <div class="form-group">
-                <label for="email">Email</label>
+              <!-- Email -->
+              <div class="mb-3">
+                <label for="email" class="form-label fw-bold">Email Address *</label>
                 <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    [(ngModel)]="contactData.email"
-                    required
-                    email
-                    #email="ngModel"
-                    placeholder="your@email.com">
-                <div class="error-message" *ngIf="email.invalid && (email.dirty || email.touched)">
-                    Please enter a valid email address
+                  type="email"
+                  id="email"
+                  name="email"
+                  class="form-control form-control-lg"
+                  [(ngModel)]="contactData.email"
+                  required
+                  email
+                  #email="ngModel"
+                  placeholder="your@email.com">
+                <div class="text-danger small mt-1" *ngIf="email.invalid && (email.dirty || email.touched)">
+                  Please enter a valid email address
                 </div>
-            </div>
+              </div>
 
-            <div class="form-group">
-                <label for="subject">Subject</label>
+              <!-- Subject -->
+              <div class="mb-3">
+                <label for="subject" class="form-label fw-bold">Subject *</label>
                 <select
-                    id="subject"
-                    name="subject"
-                    [(ngModel)]="contactData.subject"
-                    required
-                    #subject="ngModel">
-                    <option value="">Select a subject</option>
-                    <option value="support">Technical Support</option>
-                    <option value="sales">Sales</option>
-                    <option value="billing">Billing</option>
-                    <option value="other">Other</option>
+                  id="subject"
+                  name="subject"
+                  class="form-select form-select-lg"
+                  [(ngModel)]="contactData.subject"
+                  required
+                  #subject="ngModel">
+                  <option value="">Select a subject</option>
+                  <option value="support">Technical Support</option>
+                  <option value="sales">Sales Inquiry</option>
+                  <option value="billing">Billing & Payments</option>
+                  <option value="partnership">Partnership</option>
+                  <option value="other">Other</option>
                 </select>
-                <div class="error-message" *ngIf="subject.invalid && (subject.dirty || subject.touched)">
-                    Please select a subject
+                <div class="text-danger small mt-1" *ngIf="subject.invalid && (subject.dirty || subject.touched)">
+                  Please select a subject
                 </div>
-            </div>
+              </div>
 
-            <div class="form-group">
-                <label for="message">Message</label>
+              <!-- Message -->
+              <div class="mb-4">
+                <label for="message" class="form-label fw-bold">Message *</label>
                 <textarea
-                    id="message"
-                    name="message"
-                    [(ngModel)]="contactData.message"
-                    required
-                    #message="ngModel"
-                    rows="5"
-                    placeholder="Your message"></textarea>
-                <div class="error-message" *ngIf="message.invalid && (message.dirty || message.touched)">
-                    Message is required
+                  id="message"
+                  name="message"
+                  class="form-control form-control-lg"
+                  [(ngModel)]="contactData.message"
+                  required
+                  #message="ngModel"
+                  rows="5"
+                  placeholder="Tell us how we can help you..."></textarea>
+                <div class="text-danger small mt-1" *ngIf="message.invalid && (message.dirty || message.touched)">
+                  Message is required
                 </div>
-            </div>
+              </div>
 
-            <button type="submit" [disabled]="!contactForm.form.valid" class="btn btn-warning btn-lg text-white fw-bold">
+              <!-- Submit Button -->
+              <button
+                type="submit"
+                class="btn btn-warning btn-lg w-100 fw-bold"
+                [disabled]="!contactForm.form.valid">
+                <i class="bi bi-send-fill me-2"></i>
                 Send Message
-            </button>
-        </form>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
-</div>
+
+    <!-- Additional Contact Options -->
+    <div class="row mt-5">
+      <div class="col-12">
+        <div class="card border-0 shadow-sm">
+          <div class="card-body p-4">
+            <h4 class="fw-bold text-primary text-center mb-4">Other Ways to Reach Us</h4>
+            <div class="row text-center">
+              <div class="col-md-3 mb-3">
+                <div class="p-3">
+                  <i class="bi bi-chat-dots-fill text-warning fs-1 mb-2"></i>
+                  <h6 class="fw-bold">Live Chat</h6>
+                  <p class="text-muted small">Available 24/7 on our website</p>
+                </div>
+              </div>
+              <div class="col-md-3 mb-3">
+                <div class="p-3">
+                  <i class="bi bi-question-circle-fill text-warning fs-1 mb-2"></i>
+                  <h6 class="fw-bold">Help Center</h6>
+                  <p class="text-muted small">Browse our knowledge base</p>
+                </div>
+              </div>
+              <div class="col-md-3 mb-3">
+                <div class="p-3">
+                  <i class="bi bi-twitter text-warning fs-1 mb-2"></i>
+                  <h6 class="fw-bold">Social Media</h6>
+                  <p class="text-muted small">Follow us for updates</p>
+                </div>
+              </div>
+              <div class="col-md-3 mb-3">
+                <div class="p-3">
+                  <i class="bi bi-calendar-check-fill text-warning fs-1 mb-2"></i>
+                  <h6 class="fw-bold">Schedule Call</h6>
+                  <p class="text-muted small">Book a consultation</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

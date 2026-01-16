@@ -1,10 +1,4 @@
-.control-hero{
-  background: linear-gradient(135deg, #007bff 0%, #8a2be2 50%, #ff7f00 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-size: 2rem;
-  font-weight: bold;
-}
+
 /* Dégradé pour le titre */
 .gradient-text {
   background: linear-gradient(135deg, #007bff 0%, #8a2be2 50%, #ff7f00 100%);

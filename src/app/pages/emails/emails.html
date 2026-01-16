@@ -1,0 +1,98 @@
+<section class="py-5 bg-light text-center">
+  <div class="container">
+    <h2 class="fw-bold text-primary mb-4">Professional Email Hosting</h2>
+    <p class="text-muted mb-5">
+      Secure, reliable email hosting solutions for your business with advanced features and 24/7 support.
+    </p>
+
+    <div class="row justify-content-center">
+      <!-- Starter Plan -->
+      <div class="col-md-4 mb-4" *ngFor="let plan of emailPlans">
+        <div class="card border-0 shadow-sm h-100"
+             [ngClass]="{'border-2 border-warning shadow-lg': plan.isRecommended}">
+
+          <div class="card-body p-5">
+            <div class="text-center mb-4">
+              <span *ngIf="plan.isRecommended" class="badge bg-warning text-dark mb-2">Most Popular</span>
+              <h5 class="card-title fw-bold text-dark mb-3">{{ plan.title }}</h5>
+              <h2 class="text-warning fw-bold mb-1">{{ plan.promoPrice }}</h2>
+              <small class="text-muted">{{ plan.term }}</small>
+              <p class="text-muted small mb-0">Regular: {{ plan.normalPrice }}</p>
+            </div>
+
+            <div class="text-start mb-4">
+              <div class="mb-3">
+                <i class="bi bi-envelope-fill text-warning me-2"></i>
+                <strong>{{ plan.mailboxesIncluded }}</strong>
+              </div>
+              <div class="mb-3">
+                <i class="bi bi-hdd-fill text-warning me-2"></i>
+                {{ plan.storage }}
+              </div>
+              <div class="mb-3">
+                <i class="bi bi-arrow-repeat text-warning me-2"></i>
+                {{ plan.forwardingRules }}
+              </div>
+              <div class="mb-3">
+                <i class="bi bi-tag-fill text-warning me-2"></i>
+                {{ plan.aliases }}
+              </div>
+              <div class="mb-3">
+                <i class="bi bi-send-fill text-warning me-2"></i>
+                {{ plan.emailLimit }}
+              </div>
+            </div>
+
+            <button class="btn w-100 fw-bold mb-3"
+                    [ngClass]="plan.isRecommended ? 'btn-warning text-white' : 'btn-outline-warning'"
+                    routerLink="/signin">
+              {{ plan.isRecommended ? 'Get Started' : 'Choose Plan' }}
+            </button>
+
+            <div class="text-start">
+              <h6 class="fw-bold mb-2">Features included:</h6>
+              <ul class="list-unstyled small">
+                <li *ngFor="let feature of plan.features" class="mb-1">
+                  <i class="bi bi-check-circle-fill text-success me-2"></i>{{ feature }}
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Additional Information -->
+    <div class="mt-5 pt-4">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="bg-white rounded-3 shadow-sm p-4">
+            <h4 class="fw-bold text-primary mb-3">Why Choose Our Email Hosting?</h4>
+            <div class="row text-start">
+              <div class="col-md-6 mb-3">
+                <i class="bi bi-shield-check text-warning fs-4 me-3"></i>
+                <strong>Advanced Security</strong>
+                <p class="text-muted small mb-0">Multi-layer protection against spam, viruses, and cyber threats.</p>
+              </div>
+              <div class="col-md-6 mb-3">
+                <i class="bi bi-clock text-warning fs-4 me-3"></i>
+                <strong>99.9% Uptime</strong>
+                <p class="text-muted small mb-0">Reliable email delivery with industry-leading uptime guarantee.</p>
+              </div>
+              <div class="col-md-6 mb-3">
+                <i class="bi bi-headset text-warning fs-4 me-3"></i>
+                <strong>24/7 Support</strong>
+                <p class="text-muted small mb-0">Round-the-clock technical support from our expert team.</p>
+              </div>
+              <div class="col-md-6 mb-3">
+                <i class="bi bi-globe text-warning fs-4 me-3"></i>
+                <strong>Global Infrastructure</strong>
+                <p class="text-muted small mb-0">Fast email delivery with worldwide data center network.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
