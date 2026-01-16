@@ -364,12 +364,13 @@
 }
 
 .domain-search-btn {
-  background: linear-gradient(135deg, #007bff ,#ffffff);
+  background: linear-gradient(135deg, #002b80 0%, #3399ff 100%);
   padding: 0.75rem 1.5rem;
   font-weight: 600;
   border-radius: 8px;
   white-space: nowrap;
   transition: all 0.3s ease;
+  color: white;
 }
 
 .domain-search-btn:hover {

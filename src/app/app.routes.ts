@@ -30,7 +30,7 @@ export const routes: Routes = [
   { path: "services/hosting/vps", component: Vps},
   { path: "vps-hosting", component: VpsHosting},
   { path: "web-hosting", component: WebHosting},
-  { path: "divers", component: Divers},
+  { path: "services/divers", component: Divers},
   { path: "it-outsourcing", component: ItOutsourcing},
   { path: '**', component: NotFound },
 

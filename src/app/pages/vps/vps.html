@@ -15,7 +15,7 @@
     <!-- VPS Plans -->
     <div class="row g-4 justify-content-center">
       <div class="col-lg-4 col-md-6 mb-4" *ngFor="let plan of plans">
-        <div class="card border-0 shadow-sm h-100 position-relative"
+        <div class="card border-0 shadow-sm h-100 position-relative mid"
              [ngClass]="{'border-2 border-warning shadow-lg': plan.best}">
 
           <!-- Popular Badge -->
@@ -30,7 +30,7 @@
             <h3 class="card-title fw-bold text-dark mb-3">{{ plan.name }}</h3>
 
             <!-- Price -->
-            <div class="mb-4">
+            <div class="mb-4 " >
               <h2 class="text-warning fw-bold mb-1 price">{{ plan.price }}</h2>
               <small class="text-muted">per month</small>
             </div>

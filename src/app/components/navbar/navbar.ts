@@ -15,6 +15,14 @@ export class Navbar {
       private modalService: ModalService,
       public themeService: ThemeService
     ) {}
+isHostingOpen = false;
+
+toggleHosting(event: Event) {
+  event.preventDefault();
+  event.stopPropagation(); // 🔥 REQUIRED
+  this.isHostingOpen = !this.isHostingOpen;
+}
+
 
     openAuthModal(type: 'signin' | 'signup') {
       this.modalService.open(type);

@@ -13,7 +13,7 @@
 
 .modal-shell {
   width: 100%;
-  max-width: 1080px;
+  max-width: 1200px;
   animation: fadeIn 0.35s ease;
 }
 
@@ -27,7 +27,7 @@
   color: var(--text-color);
   max-height: 90vh;          /* prevents modal from being too tall */
   overflow-y: auto;          /* enables vertical scrollbar */
-  scrollbar-width: thin;     
+  scrollbar-width: thin;
 }
 
 [data-bs-theme="dark"] .modal-surface {
@@ -37,7 +37,7 @@
   color: blue !important;
   backdrop-filter: blur(14px);
 
-  
+
 }
 
 .modal-grid {
